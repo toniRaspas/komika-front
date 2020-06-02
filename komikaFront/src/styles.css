@@ -1,1 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Roboto:wght@400;700&display=swap');
+
+
+
+:root {
+    --fuente-principal: 'Bangers', cursive;
+    --fuente-secundaria: 'Roboto', sans-serif;
+    --color-fondo: rgb(233, 233, 233);
+    --color-fuente: #c23b23;
+
+}
+
+
+body {
+    background-color: var(--color-fondo);
+}
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: var(--fuente-principal);
+}
+p {
+    font-family: var(--fuente-secundaria);
+}

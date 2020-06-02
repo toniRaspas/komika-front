@@ -1,0 +1,35 @@
+.container {
+    background-color: whitesmoke;
+}
+h3,h4 {
+    color: var(--color-fuente);
+}
+header.hero {
+    height: 500px;
+    background-image: url('../../assets/images/home5.jpg');
+    background-position: center;
+    /* background-attachment: fixed; */
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+div.formulario {
+    border: 1px gainsboro solid;
+    background-color: whitesmoke;
+    margin-left: 20px;
+    position: relative;
+    bottom: 75px;
+}
+div.formulario p {
+    color: var(--color-fuente);
+}
+
+.servicios {
+    box-shadow: 0 0 10px grey;
+    margin-bottom: 200px;
+}
+
+.servicios article {
+    text-align: center;
+    padding: 15px;
+}

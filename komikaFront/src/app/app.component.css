@@ -1,7 +1,4 @@
-/* .container-fluid {
-    height: 100vh;
-    background-image: url('/assets/images/home3.jpg');
-    background-repeat: no-repeat;
-    background-size: cover contain;
-} */
-
+footer {
+    height: 50px;
+    background-color: var(--color-fuente);
+}
