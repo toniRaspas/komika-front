@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { PerfilComponent } from './perfil/perfil.component';
@@ -22,7 +24,11 @@ import { RegistroComponent } from './registro/registro.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+<<<<<<< HEAD
     ReactiveFormsModule
+=======
+    NgxExtendedPdfViewerModule
+>>>>>>> featured-03-05PDF
   ],
   providers: [],
   bootstrap: [AppComponent]

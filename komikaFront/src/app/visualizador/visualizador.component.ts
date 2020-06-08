@@ -7,9 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VisualizadorComponent implements OnInit {
 
+
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
+
+
+
+  pdfSrc = "../../assets/images/piano_rojo.pdf";
+
+
+
+
+
+
 
 }

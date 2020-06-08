@@ -1,1 +1,13 @@
-<p>visualizador works!</p>
+<div class="d-flex flex-row">
+
+    <div class="col-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor fuga architecto explicabo quidem!
+        Temporibus minima inventore, dicta praesentium dolore maiores? Corporis distinctio nobis voluptates, atque
+        adipisci
+        asperiores vero nemo officia?</div>
+
+    <ngx-extended-pdf-viewer class="col-11" [src]=pdfSrc useBrowserLocale="true" [showDownloadButton]="false"
+        [showOpenFileButton]="false" [showPrintButton]="false" [zoom]="'page-fit'" [spread]="'odd'" delayFirstView=1000
+        height="90vh">
+    </ngx-extended-pdf-viewer>
+    <div style="height: 100px;"></div>
+</div>
