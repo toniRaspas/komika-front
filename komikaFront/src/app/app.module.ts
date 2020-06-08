@@ -24,12 +24,8 @@ import { RegistroComponent } from './registro/registro.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-<<<<<<< HEAD
-    ReactiveFormsModule
-=======
-    NgxExtendedPdfViewerModule
->>>>>>> featured-03-05PDF
-  ],
+    ReactiveFormsModule,
+    NgxExtendedPdfViewerModule],
   providers: [],
   bootstrap: [AppComponent]
 })
