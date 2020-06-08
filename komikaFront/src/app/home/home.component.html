@@ -17,15 +17,15 @@
         </div>
 
         <div class="formulario p-5">
-            <form action="">
+            <form novalidate [formGroup]="login" (ngSubmit)="onSubmit()">
                 <p>Acceso:</p>
                 <div class="form-group">
-                    <input class="form-control" type="text" placeholder="E-mail">
+                    <input class="form-control" type="text" placeholder="E-mail" formControlName="email">
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="password" placeholder="Contraseña">
+                    <input class="form-control" type="password" placeholder="Contraseña" formControlName="password">
                 </div>
-                <button type="submit" class="btn btn-outline-danger">Entrar</button>
+                <button type="submit" class="btn btn-outline-danger" [disabled]="!login.valid">Entrar</button>
                 <a href="" class="btn btn-sm btn-link btn-xs-block" [routerLink]="['/registro']">Regístrate</a>
             </form>
         </div>

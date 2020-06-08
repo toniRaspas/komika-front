@@ -33,3 +33,10 @@ div.formulario p {
     text-align: center;
     padding: 15px;
 }
+
+input.ng-valid.ng-touched{
+    border: 1px solid cornflowerblue;
+}
+input.ng-invalid.ng-touched{
+    border: 1px solid lightcoral;
+}    
