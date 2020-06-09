@@ -1,9 +1,8 @@
 
 
-
-const getAllUsers = () => {
+const getAllComics = () => {
     return new Promise((resolve, reject) => {
-        db.query('select * from komika.usuarios', (err, rows) => {
+        db.query('select * from comics', (err, rows) => {
             if (err) reject(err);
             resolve(rows);
         });
@@ -13,8 +12,6 @@ const getAllUsers = () => {
 
 
 
-
-
 module.exports = {
-    getAllUsers
+    getAllComics
 }
