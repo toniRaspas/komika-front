@@ -1,5 +1,5 @@
 const mysql = require('mysql');
-const router = require('express').Router();
+
 
 const connect = () => {
     const pool = mysql.createPool({
@@ -10,11 +10,11 @@ const connect = () => {
         database: process.env.DB_DATABASE
     });
     global.db = pool;
-}
+};
 
 
 
-console.log('hola mundo')
+
 
 module.exports = {
     connect: connect
