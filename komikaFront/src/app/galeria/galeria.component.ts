@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ComicsService } from '../servicios/comics.service';
+import { Comic } from '../models/comics.model';
+
 
 @Component({
   selector: 'app-galeria',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GaleriaComponent implements OnInit {
 
-  constructor() { }
+  arrComics: Comic[];
 
-  ngOnInit(): void {
+
+
+  constructor(private comicsService: ComicsService) {
+
+
   }
 
+  async ngOnInit() {
+    this.arrComics = await this.comicsService.getAll();
+  }
+  onChange($event) {
+    this.comicsService.getByCat($event.target.value)
+      .then(arrComicsCat => { this.arrComics = arrComicsCat; })
+  }
+
+
 }
+

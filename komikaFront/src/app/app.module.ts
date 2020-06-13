@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -25,7 +26,9 @@ import { RegistroComponent } from './registro/registro.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxExtendedPdfViewerModule],
+    NgxExtendedPdfViewerModule,
+    HttpClientModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

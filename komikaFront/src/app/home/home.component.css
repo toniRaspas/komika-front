@@ -6,7 +6,7 @@ h3,h4 {
 }
 header.hero {
     height: 500px;
-    background-image: url('../../assets/images/home5.jpg');
+    background-image: url('/assets/images/home5.jpg');
     background-position: center;
     /* background-attachment: fixed; */
     background-size: cover;
