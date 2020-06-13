@@ -40,22 +40,5 @@ export class ComicsService {
   }
 }
 
-/*
-      this.comics.filter(posteo => {
-        const categoria = posteo.categoria.toLocaleLowerCase();
-        const estaIncluido = categoria.includes(cat.toLocaleLowerCase());
-        return estaIncluido;
-      });
-      resolve(arrFiltrado);
-    });
-  }
-}
 
-datos;
-  // Seleccionamos o iniciamos el valor '0' del <select>
-  opcionSeleccionado: string  = '';
-  verSeleccion: string = '';
 
-  constructor
-  this.datos = [1,2,3,4,5,6,7,8,9,10]
-  */
