@@ -7,10 +7,11 @@ POST http://localhost:3000/users/registro
 Content-Type: application/json
 
 {
-    "nombre":"Perestroika",
-    "email": "droga@gmail.com",
+    "nombre":"Toni",
+    "usuario": "Toni",
+    "email": "boketto.producciones@gmail.com",
     "password": "qwerty123",
-    "usuario": "PedroLaDroga"
+    "rol": "ADMIN"
 }
 
 ###
@@ -19,5 +20,6 @@ POST http://localhost:3000/users/login
 Content-Type: application/json
 
 {
-    "email":"drogas@gmail.com"
+    "email":"alwaromoreno@gmail.com",
+    "password": "qwerty123"
 }
