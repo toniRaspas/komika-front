@@ -2,16 +2,15 @@ GET http://localhost:3000/comics
 Content-Type: application/json
 
 ###
-
 POST http://localhost:3000/users/registro
 Content-Type: application/json
 
 {
-    "nombre":"Toni",
-    "usuario": "Toni",
-    "email": "boketto.producciones@gmail.com",
+    "nombre":"Pepa",
+    "usuario": "Pepa",
+    "email": "pepa@gmail.com",
     "password": "qwerty123",
-    "rol": "ADMIN"
+    "rol": ""
 }
 
 ###
