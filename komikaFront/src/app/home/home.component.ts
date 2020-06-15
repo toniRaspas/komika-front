@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UsuariosService } from '../servicios/usuarios.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +11,10 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class HomeComponent implements OnInit {
 
   login: FormGroup;
-  constructor() {
+  constructor(
+    private usuariosService: UsuariosService,
+    private router: Router
+  ) {
     this.login = new FormGroup({
       email: new FormControl('', [Validators.required,
       Validators.pattern(/^\w+[\w-\.]*\@\w+((-\w+)|(\w*))\.[a-z]{2,3}$/)
@@ -22,5 +27,17 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  onSubmit() { console.log(this.login.value) }
+
+  async onSubmit() {
+    try {
+      const response = await this.usuariosService.login(this.login.value);
+      if (response.success) {
+        const token = response.token;
+        localStorage.setItem('userToken', token);
+        this.router.navigate(['/galeria']);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  }
 }

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UsuariosService } from '../servicios/usuarios.service';
+import { Router } from '@angular/router';
+import { Usuario } from '../models/usuarios.model';
 
 @Component({
   selector: 'app-registro',
@@ -10,17 +13,19 @@ export class RegistroComponent implements OnInit {
   //creamos una variable del tipo FormGroup
   registro: FormGroup;
 
-  constructor() {
+  constructor(
+    private usuariosService: UsuariosService,
+    private router: Router) {
 
     //inicializamos dichas variables
     this.registro = new FormGroup({
 
-      nombre: new FormControl('', [Validators.required, Validators.minLength(3)]),
-      usuario: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required,
+      'nombre': new FormControl('', [Validators.required, Validators.minLength(3)]),
+      'usuario': new FormControl('', [Validators.required]),
+      'email': new FormControl('', [Validators.required,
       Validators.pattern(/^\w+[\w-\.]*\@\w+((-\w+)|(\w*))\.[a-z]{2,3}$/)
       ]),
-      password: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z]\w{8,30}$/)
+      'password': new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z]\w{8,30}$/)
       ]),
     })
   }
@@ -28,8 +33,27 @@ export class RegistroComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit() {
-    console.log(this.registro.value);
+  async onSubmit() {
 
+    const newUser: Usuario = this.registro.value;
+    try {
+      let response = await this.usuariosService.registro(newUser);
+      response.error ? console.log(response.error) : this.createNewToken(newUser);
+    }
+    catch (err) {
+      console.log(err);
+    }
   }
+
+
+  async createNewToken(pNewUser) {
+    let response = await this.usuariosService.login(pNewUser);
+    const token = response.token;
+    localStorage.setItem('userToken', token);
+    this.router.navigate(['/galeria']);
+  }
+
+
+
 }
+
