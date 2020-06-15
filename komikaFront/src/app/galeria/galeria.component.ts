@@ -22,6 +22,7 @@ export class GaleriaComponent implements OnInit {
   async ngOnInit() {
     this.arrComics = await this.comicsService.getAll();
   }
+
   onChange($event) {
     this.comicsService.getByCat($event.target.value)
       .then(arrComicsCat => { this.arrComics = arrComicsCat; })
