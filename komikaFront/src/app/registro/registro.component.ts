@@ -47,10 +47,15 @@ export class RegistroComponent implements OnInit {
 
 
   async createNewToken(pNewUser) {
-    let response = await this.usuariosService.login(pNewUser);
-    const token = response.token;
-    localStorage.setItem('userToken', token);
-    this.router.navigate(['/galeria']);
+    try {
+      let response = await this.usuariosService.login(pNewUser);
+      if (response.success) {
+        await this.usuariosService.createLocalToken(response.token);
+        this.router.navigate(['/galeria']);
+      }
+    } catch (err) {
+      console.log(err);
+    }
   }
 
 

@@ -25,6 +25,19 @@ export class UsuariosService {
   }
 
 
+  //Creación, recuperación y borrado Token registro/login
+  createLocalToken(pResponse) {
+    var token = pResponse;
+    return localStorage.setItem('userToken', token);
+  };
+  retrieveLocalToken() {
+    var token = localStorage.getItem('userToken');
+    console.log(token);
+  };
+  deleteToken() {
+    localStorage.removeItem('userToken');
+  };
+
 
 
 
