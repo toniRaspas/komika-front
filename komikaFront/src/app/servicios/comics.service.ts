@@ -3,6 +3,7 @@ import { Comic } from '../models/comics.model';
 import { Autor } from '../models/autores.model';
 import { HttpClient } from '@angular/common/http';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -21,23 +22,60 @@ export class ComicsService {
   }
 
   getAll(): Promise<any> {
-
     return this.httpClient.get(this.baseUrl).toPromise();
   }
 
-  /*
-    getByCat(categoria): Promise<any> {
-  
-      return this.httpClient.get(this.baseUrl + this.categoria).toPromise();
-    }
-  
-  */
+
   getByCat(cat: string): Promise<any> {
     return new Promise<any>((resolve, reject) => {
-      const urlFil = this.baseUrl + '/' + cat;
+      const urlFil = this.baseUrl + '/categoria/' + cat;
       resolve(this.httpClient.get(urlFil).toPromise())
     });
   }
+
+  getByWords(words: string): Promise<any> {
+    return new Promise<any>((resolve, reject) => {
+      const urlFil = this.baseUrl + '/titulo/' + words;
+      resolve(this.httpClient.get(urlFil).toPromise())
+    })
+  }
+
+
+
+  getByBoth(cat: string, words: string): Promise<any> {
+    return new Promise<any>((resolve, reject) => {
+      const urlFil = this.baseUrl + '/filter/' + cat + '/' + words; resolve(this.httpClient.get(urlFil).toPromise())
+    })
+  }
+
+  /*
+    getByBoths(cat, words): Promise<any> {
+  
+      return new Promise<any>((resolve, reject) => {
+        if (cat == '' && words != '') {
+  
+          words = '/' + words;
+          const urlFil = this.baseUrl + '/titulo' + words; resolve(this.httpClient.get(urlFil).toPromise())
+        }
+        else if (cat != '' && words == '') {
+  
+          cat = '/' + cat;
+          const urlFil = this.baseUrl + '/categoria' + cat; resolve(this.httpClient.get(urlFil).toPromise())
+        }
+        else if (cat != '' && words != '') {
+          cat = '/' + cat;
+          words = '/' + words;
+          const urlFil = this.baseUrl + '/filter' + cat + words; resolve(this.httpClient.get(urlFil).toPromise())
+        }
+        else if (cat == '' && words == '') {
+          const urlFil = this.baseUrl; resolve(this.httpClient.get(urlFil).toPromise)
+        }
+      })
+    }
+  
+  */
+
+
 }
 
 

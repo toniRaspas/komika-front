@@ -22,7 +22,7 @@ const getByCat = (pCat) => {
 const getByTit = (pTit) => {
     return new Promise((resolve, reject) => {
         pTit = '%' + pTit + '%';
-        db.query(`select * from comics where comics.titulo like "${pTit}" or comics.autor like "${pTit}"`, (err, rows) => {
+        db.query(`select * from comics where comics.titulo like "${pTit}" or comics.autor like "${pTit}" or comics.editorial like "${pTit}"`, (err, rows) => {
 
             if (err) reject(err);
             resolve(rows);
@@ -32,10 +32,14 @@ const getByTit = (pTit) => {
 //"select * from comics where parse(comics.titulo) like'%?%'"
 //select * from comics where comics.genero = pcalt and comics lower(comics.titulo) like  
 
+
 const getByFilter = (pCat, pTit) => {
     return new Promise((resolve, reject) => {
         pTit = '%' + pTit + '%';
-        db.query(`select * from comics where comics.genero = ? and comics.titulo like "${pTit}" or comics.autor like "${pTit}"`, [pCat], (err, rows) => {
+        pCat = pCat;
+
+        //SELECT * FROM comics WHERE comics.genero = 'terror' and (comics.titulo or comics.autor like '%o%')
+        db.query(`SELECT * FROM comics WHERE comics.genero = "${pCat}" AND (comics.titulo LIKE"${pTit}" OR comics.autor LIKE"${pTit}" OR comics.editorial LIKE"${pTit}")`, [pCat, pTit], (err, rows) => {
             if (err) reject(err);
             resolve(rows);
         })
@@ -45,8 +49,10 @@ const getByFilter = (pCat, pTit) => {
 
 
 
+
 module.exports = {
     getAllComics,
     getByCat,
-    getByTit
+    getByTit,
+    getByFilter
 }

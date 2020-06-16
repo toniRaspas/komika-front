@@ -1,7 +1,8 @@
 <div class="container">
 
     <div class="row">
-        <select name="categoria" (change)="onChange($event)">
+        <!--tengo que aplicar los filtros    ////onBoth(cat, words)-->
+        <select name="categoria" (change)="onChange($event)" [(ngModel)]="cat">
             <option value="">Todo</option>
             <option value="aventuras">Aventuras</option>
             <option value="comico">Cómico</option>
@@ -9,6 +10,10 @@
             <option value="novela grafica">Novela Gráfica</option>
             <option value="terror">Terror</option>
         </select>
+        <input type="text" placeholder="Buscador..." [(ngModel)]="words">
+        <button (click)="onBoth(cat, words)">BUSCA</button>
+
+
         <h2 class="text-center col-12">GALERIA</h2>
 
         <div *ngFor="let comic of arrComics" class="col-4 h-100">
@@ -22,5 +27,9 @@
             <p>Editorial:{{comic.editorial}}</p>
             <button>LEER</button>
         </div>
+
     </div>
 </div>
+
+<!--(keyup)="onChangeWords($event)"-->
+<!--(change)="onChange($event)"-->

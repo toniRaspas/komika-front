@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
 });
 
 
-
+/////////FILTRO POR CATEGORIA///////////////////////////////////
 router.get('/categoria/:genero', async (req, res) => {
     try {
         const genero = await Comic.getByCat(req.params.genero);
@@ -23,16 +23,22 @@ router.get('/categoria/:genero', async (req, res) => {
     }
 });
 
+
+
+////////////////////////////////////////FILTRO POR TITULO///////////////////////////////////////
 router.get('/titulo/:titulo', async (req, res) => {
     try {
-        const titulo = await Comic.getByTit(req.params.titulo, req.params.autor);
+        const titulo = await Comic.getByTit(req.params.titulo);
         res.json(titulo);
     } catch (err) {
         res.send(err)
     }
 });
 
-router.get('/filter/:categoria/:titulo', async (req, res) => {
+
+//////////////////////////FILTRO POR CATEGORIA, Y POR TITULO//////////////////////////////
+
+router.get('/filter/:genero/:titulo', async (req, res) => {
     console.log(req.params.genero);
     console.log(req.params.titulo);
     try {
@@ -42,6 +48,8 @@ router.get('/filter/:categoria/:titulo', async (req, res) => {
         res.send(err)
     }
 });
+
+
 
 
 

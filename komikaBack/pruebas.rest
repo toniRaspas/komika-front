@@ -6,9 +6,9 @@ POST http://localhost:3000/users/registro
 Content-Type: application/json
 
 {
-    "nombre":"Pepa",
-    "usuario": "Pepa",
-    "email": "pepa@gmail.com",
+    "nombre":"Antonio",
+    "usuario": "Tonieras",
+    "email": "tonieras@gmail.com",
     "password": "qwerty123",
     "rol": ""
 }
