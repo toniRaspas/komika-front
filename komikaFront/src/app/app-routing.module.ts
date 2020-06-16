@@ -5,14 +5,15 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { GaleriaComponent } from './galeria/galeria.component';
 import { VisualizadorComponent } from './visualizador/visualizador.component';
 import { RegistroComponent } from './registro/registro.component';
+import { AccesoGuard } from './acceso.guard';
 
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: 'home', component: HomeComponent },
-  { path: 'perfil', component: PerfilComponent },
-  { path: 'galeria', component: GaleriaComponent },
-  { path: 'view', component: VisualizadorComponent },
+  { path: 'perfil', component: PerfilComponent, canActivate: [AccesoGuard] },
+  { path: 'galeria', component: GaleriaComponent, canActivate: [AccesoGuard] },
+  { path: 'view', component: VisualizadorComponent, canActivate: [AccesoGuard] },
   { path: 'registro', component: RegistroComponent },
   { path: '**', redirectTo: 'home' }
 ];

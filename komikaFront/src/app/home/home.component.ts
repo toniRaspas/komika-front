@@ -32,8 +32,8 @@ export class HomeComponent implements OnInit {
     try {
       const response = await this.usuariosService.login(this.login.value);
       if (response.success) {
-        const token = response.token;
-        localStorage.setItem('userToken', token);
+        await this.usuariosService.createLocalToken(response.token);
+        await this.usuariosService.retrieveLocalToken();
         this.router.navigate(['/galeria']);
       }
     } catch (err) {
