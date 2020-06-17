@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+
+
 @Component({
   selector: 'app-visualizador',
   templateUrl: './visualizador.component.html',
@@ -8,16 +10,14 @@ import { Component, OnInit } from '@angular/core';
 export class VisualizadorComponent implements OnInit {
 
 
-
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
 
 
-
-
-  pdfSrc = "../../assets/images/piano_rojo.pdf";
+  pdfSrc = "https://firebasestorage.googleapis.com/v0/b/app-komika.appspot.com/o/daredevil.pdf?alt=media&token=f9062563-48e0-4d56-aa54-c27adf98bcd7";
 
 
 

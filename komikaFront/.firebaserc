@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "app-komika": {
+      "hosting": {
+        "komikaFront": [
+          "app-komika"
+        ]
+      }
+    }
+  }
+}
