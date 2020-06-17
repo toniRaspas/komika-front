@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+
+
 @Component({
   selector: 'app-visualizador',
   templateUrl: './visualizador.component.html',
@@ -8,8 +10,8 @@ import { Component, OnInit } from '@angular/core';
 export class VisualizadorComponent implements OnInit {
 
 
-
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
