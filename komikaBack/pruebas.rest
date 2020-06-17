@@ -19,6 +19,21 @@ POST http://localhost:3000/users/login
 Content-Type: application/json
 
 {
-    "email":"alwaromoreno@gmail.com",
+    "email":"anita@gmail.com",
     "password": "qwerty123"
 }
+
+
+###
+PUT http://localhost:3000/comics/11
+Content-Type: application/json
+{
+    "titulo": "tuputamadre"
+    
+    
+}
+
+###
+DELETE http://localhost:3000/comics/11
+Content-Type: application/json
+

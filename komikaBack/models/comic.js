@@ -32,7 +32,6 @@ const getByTit = (pTit) => {
 //"select * from comics where parse(comics.titulo) like'%?%'"
 //select * from comics where comics.genero = pcalt and comics lower(comics.titulo) like  
 
-
 const getByFilter = (pCat, pTit) => {
     return new Promise((resolve, reject) => {
         pTit = '%' + pTit + '%';
@@ -44,7 +43,25 @@ const getByFilter = (pCat, pTit) => {
             resolve(rows);
         })
     })
-}
+};
+
+const deleteById = (pId) => {
+    return new Promise((resolve, reject) => {
+        db.query('delete from comics where Id = ?', [pId], (err, result) => {
+            if (err) reject(err);
+            resolve(result);
+        });
+    });
+};
+
+const updateById = (pId, { titulo, autor, dibujante, ano, genero, escuela, editorial, descripcion, nombreArchivo, linkFoto, archivo, fk_autor }) => {
+    return new Promise((resolve, reject) => {
+        db.query('update comics set titulo=?, autor=?, dibujante=?, ano=?, genero=?, escuela=?, editorial=?, descripcion=?, nombreArchivo=?, linkFoto=?, archivo=?, fk_autor=? where id=?', [titulo, autor, dibujante, ano, genero, escuela, editorial, descripcion, nombreArchivo, linkFoto, archivo, fk_autor, pId], (err, result) => {
+            if (err) reject(err);
+            resolve(result);
+        });
+    });
+};
 
 
 
@@ -54,5 +71,7 @@ module.exports = {
     getAllComics,
     getByCat,
     getByTit,
-    getByFilter
+    getByFilter,
+    deleteById,
+    updateById
 }

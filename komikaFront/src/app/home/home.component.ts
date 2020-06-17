@@ -31,6 +31,9 @@ export class HomeComponent implements OnInit {
   async onSubmit() {
     try {
       const response = await this.usuariosService.login(this.login.value);
+
+      console.log(response);
+
       if (response.success) {
         await this.usuariosService.createLocalToken(response.token);
         await this.usuariosService.retrieveLocalToken();
