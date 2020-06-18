@@ -58,6 +58,17 @@ router.get('/filter/:genero/:titulo', async (req, res) => {
     }
 });
 
+/////////////////////////MOSTRAR LINK//////////////////////
+
+router.get('/pdf/:id', async (req, res) => {
+    try {
+        const viewer = await Comic.getByIdViewer(req.params.id);
+        res.json(viewer);
+    } catch (err) {
+        res.send(err);
+    }
+})
+
 
 // Borrar Cómic
 

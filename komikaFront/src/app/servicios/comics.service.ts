@@ -12,6 +12,7 @@ export class ComicsService {
   comics: Comic[];
   autores: Autor[];
   baseUrl: string;
+  //visualizador: string;
 
 
   constructor(private httpClient: HttpClient) {
@@ -30,7 +31,7 @@ export class ComicsService {
     });
   }
 
-
+  ////////////filtros galeria////////////
   getByCat(cat: string): Promise<any> {
     return new Promise<any>((resolve, reject) => {
       const urlFil = this.baseUrl + '/categoria/' + cat;
@@ -47,6 +48,7 @@ export class ComicsService {
 
   getByBoth(cat: string, words: string): Promise<any> {
     return new Promise<any>((resolve, reject) => {
+<<<<<<< HEAD
       const urlFil = this.baseUrl + '/filter/' + cat + '/' + words;
       resolve(this.httpClient.get(urlFil).toPromise())
     });
@@ -57,34 +59,18 @@ export class ComicsService {
       resolve(this.httpClient.delete(this.baseUrl + '/' + pId).toPromise());
     });
   };
+=======
+      const urlFil = this.baseUrl + '/filter/' + cat + '/' + words; resolve(this.httpClient.get(urlFil).toPromise())
+    })
+  }
+  ////////////lector de comics////////////
+>>>>>>> master
 
-  /*
-    getByBoths(cat, words): Promise<any> {
-  
-      return new Promise<any>((resolve, reject) => {
-        if (cat == '' && words != '') {
-  
-          words = '/' + words;
-          const urlFil = this.baseUrl + '/titulo' + words; resolve(this.httpClient.get(urlFil).toPromise())
-        }
-        else if (cat != '' && words == '') {
-  
-          cat = '/' + cat;
-          const urlFil = this.baseUrl + '/categoria' + cat; resolve(this.httpClient.get(urlFil).toPromise())
-        }
-        else if (cat != '' && words != '') {
-          cat = '/' + cat;
-          words = '/' + words;
-          const urlFil = this.baseUrl + '/filter' + cat + words; resolve(this.httpClient.get(urlFil).toPromise())
-        }
-        else if (cat == '' && words == '') {
-          const urlFil = this.baseUrl; resolve(this.httpClient.get(urlFil).toPromise)
-        }
-      })
-    }
-  
-  */
-
+  viewById(id: string): Promise<any> {
+    return new Promise<any>((resolve, reject) => {
+      const urlPdf = this.baseUrl + '/pdf/' + id; resolve(this.httpClient.get(urlPdf).toPromise())
+    })
+  }
 
 }
 

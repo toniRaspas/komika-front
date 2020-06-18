@@ -1,4 +1,4 @@
-
+//
 const getAllComics = () => {
     return new Promise((resolve, reject) => {
         db.query('select * from comics', (err, rows) => {
@@ -42,8 +42,6 @@ const getByTit = (pTit) => {
         });
     });
 };
-//"select * from comics where parse(comics.titulo) like'%?%'"
-//select * from comics where comics.genero = pcalt and comics lower(comics.titulo) like  
 
 const getByFilter = (pCat, pTit) => {
     return new Promise((resolve, reject) => {
@@ -75,6 +73,16 @@ const updateById = (pId, { titulo, autor, dibujante, ano, genero, escuela, edito
     });
 };
 
+//////////////////////////////////////OBTENER ENLACE DE UN CÓMIC CONCRETO//////////////////////////////////////////
+const getByIdViewer = (pId) => {
+    return new Promise((resolve, reject) => {
+
+        db.query('SELECT comics.archivo FROM comics WHERE comics.id = ?', [pId], (err, rows) => {
+            if (err) reject(err);
+            resolve(rows);
+        })
+    })
+}
 
 
 
@@ -84,7 +92,11 @@ module.exports = {
     getByCat,
     getByTit,
     getByFilter,
+<<<<<<< HEAD
     deleteById,
     updateById,
     getById
+=======
+    getByIdViewer
+>>>>>>> master
 }

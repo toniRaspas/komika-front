@@ -56,4 +56,15 @@ function createToken(pUsuarioId) {
   return jwt.sign(payload, process.env.SECRET_KEY);
 }
 
+//acceder a los datos del perfil por usuario
+router.get('/:usuario', async (req, res) => {
+  const usuario = await Usuario.getByUser(req.params.usuario);
+  console.log(usuario);
+  try {
+    res.json(usuario);
+  } catch (err) {
+    res.send(err)
+  }
+});
+
 module.exports = router;
