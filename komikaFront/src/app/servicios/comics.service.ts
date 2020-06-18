@@ -12,6 +12,7 @@ export class ComicsService {
   comics: Comic[];
   autores: Autor[];
   baseUrl: string;
+  //visualizador: string;
 
 
 
@@ -25,7 +26,7 @@ export class ComicsService {
     return this.httpClient.get(this.baseUrl).toPromise();
   }
 
-
+  ////////////filtros galeria////////////
   getByCat(cat: string): Promise<any> {
     return new Promise<any>((resolve, reject) => {
       const urlFil = this.baseUrl + '/categoria/' + cat;
@@ -47,34 +48,13 @@ export class ComicsService {
       const urlFil = this.baseUrl + '/filter/' + cat + '/' + words; resolve(this.httpClient.get(urlFil).toPromise())
     })
   }
+  ////////////lector de comics////////////
 
-  /*
-    getByBoths(cat, words): Promise<any> {
-  
-      return new Promise<any>((resolve, reject) => {
-        if (cat == '' && words != '') {
-  
-          words = '/' + words;
-          const urlFil = this.baseUrl + '/titulo' + words; resolve(this.httpClient.get(urlFil).toPromise())
-        }
-        else if (cat != '' && words == '') {
-  
-          cat = '/' + cat;
-          const urlFil = this.baseUrl + '/categoria' + cat; resolve(this.httpClient.get(urlFil).toPromise())
-        }
-        else if (cat != '' && words != '') {
-          cat = '/' + cat;
-          words = '/' + words;
-          const urlFil = this.baseUrl + '/filter' + cat + words; resolve(this.httpClient.get(urlFil).toPromise())
-        }
-        else if (cat == '' && words == '') {
-          const urlFil = this.baseUrl; resolve(this.httpClient.get(urlFil).toPromise)
-        }
-      })
-    }
-  
-  */
-
+  viewById(id: string): Promise<any> {
+    return new Promise<any>((resolve, reject) => {
+      const urlPdf = this.baseUrl + '/pdf/' + id; resolve(this.httpClient.get(urlPdf).toPromise())
+    })
+  }
 
 }
 

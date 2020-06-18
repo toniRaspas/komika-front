@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ComicsService } from '../servicios/comics.service';
+import { Comic } from '../models/comics.model';
+import { ActivatedRoute } from '@angular/router';
 
 
 
@@ -8,18 +11,52 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./visualizador.component.css']
 })
 export class VisualizadorComponent implements OnInit {
+  id: string;
+  arrComics: Comic[];
+  constructor(private activateRoute: ActivatedRoute, private comicsService: ComicsService) {
 
-
-  constructor() {
+    this.id;
   }
-
   ngOnInit(): void {
+    this.activateRoute.params.subscribe((params) => {
+      const idesVarios = params.idComic;
+      this.id = idesVarios;
+      })
+      this.comicsService.viewById(this.id).then(arrViewId =>{this.arrComics = arrViewId;
+
+        
+        console.log(this.arrComics)
+      })
+      console.log(this.arrComics);
+      
+        
   }
+ 
+  
+  
+  
+  }
+ 
+  
+
+
+
+  /*
+    ngOnInit(): void {
+      this.activateRoute.params.subscribe((params) => {
+        console.log(params.idComic);
+  
+        // const archivo = recComic(params.idComic)
+      })
+  */
+  /*recComic(pComic){
+    this.comicsService.viewById(pComic)
+  }
+*/
 
 
 
 
-  pdfSrc = "https://firebasestorage.googleapis.com/v0/b/app-komika.appspot.com/o/daredevil.pdf?alt=media&token=f9062563-48e0-4d56-aa54-c27adf98bcd7"
 
 
 
@@ -27,4 +64,13 @@ export class VisualizadorComponent implements OnInit {
 
 
 
-}
+
+
+
+
+
+
+
+
+
+

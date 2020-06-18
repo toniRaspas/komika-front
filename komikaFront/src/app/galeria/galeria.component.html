@@ -25,11 +25,11 @@
             <p>Genero:{{comic.genero}}</p>
             <p>Escuela:{{comic.escuela}}</p>
             <p>Editorial:{{comic.editorial}}</p>
-            <button>LEER</button>
+            <button [routerLink]="['/galeria/view', comic.id]">LEER</button>
         </div>
 
     </div>
 </div>
-
-<!--(keyup)="onChangeWords($event)"-->
+<!-- (click)=" viewerComic(comic.id)"-->
+<!--(keyup)=" onChangeWords($event)"-->
 <!--(change)="onChange($event)"-->

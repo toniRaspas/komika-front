@@ -12,8 +12,12 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: 'home', component: HomeComponent },
   { path: 'perfil', component: PerfilComponent, canActivate: [AccesoGuard] },
-  { path: 'galeria', component: GaleriaComponent, canActivate: [AccesoGuard] },
-  { path: 'view', component: VisualizadorComponent, canActivate: [AccesoGuard] },
+  {
+    path: 'galeria', component: GaleriaComponent, canActivate: [AccesoGuard]
+  },
+  {
+    path: 'galeria/view/:idComic', component: VisualizadorComponent
+  },
   { path: 'registro', component: RegistroComponent },
   { path: '**', redirectTo: 'home' }
 ];
