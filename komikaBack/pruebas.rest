@@ -1,6 +1,11 @@
 GET http://localhost:3000/comics
 Content-Type: application/json
 
+
+###
+GET http://localhost:3000/comics/3
+Content-Type: application/json
+
 ###
 POST http://localhost:3000/users/registro
 Content-Type: application/json

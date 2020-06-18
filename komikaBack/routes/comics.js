@@ -12,6 +12,15 @@ router.get('/', (req, res) => {
         });
 });
 
+router.get('/:comicId', async (req, res) => {
+    try {
+        const comic = await Comic.getById(req.params.comicId);
+        res.json(comic);
+    } catch (err) {
+        res.send(err);
+    }
+});
+
 
 /////////FILTRO POR CATEGORIA///////////////////////////////////
 router.get('/categoria/:genero', async (req, res) => {

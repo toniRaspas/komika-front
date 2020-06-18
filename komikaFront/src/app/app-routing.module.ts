@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'galeria', component: GaleriaComponent, canActivate: [AccesoGuard] },
   { path: 'view', component: VisualizadorComponent, canActivate: [AccesoGuard] },
   { path: 'admin', component: AdminComponent },
-  { path: 'editar', component: EditarComponent },
+  { path: 'editar/:comicId', component: EditarComponent },
   { path: 'registro', component: RegistroComponent },
   { path: '**', redirectTo: 'home' }
 ];

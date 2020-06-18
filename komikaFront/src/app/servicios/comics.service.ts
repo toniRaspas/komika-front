@@ -24,6 +24,12 @@ export class ComicsService {
     });
   };
 
+  getComicById(pId): Promise<any> {
+    return new Promise((resolve, reject) => {
+      resolve(this.httpClient.get(this.baseUrl + '/' + pId).toPromise());
+    });
+  }
+
 
   getByCat(cat: string): Promise<any> {
     return new Promise<any>((resolve, reject) => {
@@ -48,7 +54,7 @@ export class ComicsService {
 
   deleteComic(pId): Promise<any> {
     return new Promise((resolve, reject) => {
-      resolve(this.httpClient.delete(this.baseUrl + `/:${pId}`).toPromise());
+      resolve(this.httpClient.delete(this.baseUrl + '/' + pId).toPromise());
     });
   };
 
