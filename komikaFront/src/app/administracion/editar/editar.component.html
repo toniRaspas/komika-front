@@ -1,0 +1,83 @@
+<div class="container">
+    <form action="">
+
+        <div class=" form-group">
+            <label for="titulo">Titulo: </label>
+            <input type="text" class="form-control" id="titulo" name="titulo" [value]=comic[0].titulo>
+        </div>
+
+        <div class="form-group">
+            <label for="autor">Autor: </label>
+            <input type="text" class="form-control" id="autor" name="autor" [value]=comic[0].autor>
+        </div>
+
+        <div class="form-group">
+            <label for="">Dibujante:
+            </label>
+            <input type="text" id="dibujante" name="dibujante" class="form-control" [value]=comic[0].dibujante>
+        </div>
+
+        <div class="form-row">
+            <div class="col">
+                <label for="">Ano:
+                    <input type="date" id="ano" name="ano" class="form-control" [value]=comic[0].ano>
+                </label>
+            </div>
+
+            <div class="col">
+                <label for="">Género:
+                    <input type="text" id="genero" name="genero" class="form-control" [value]=comic[0].genero>
+                </label>
+            </div>
+
+            <div class="col">
+                <label for="">Escuela:
+                    <select type="text" id="escuela" name="escuela" class="form-control" [value]=comic[0].escuela>
+                        <option value="comic">Cómic</option>
+                        <option value="bande dessine">Bande dessiné</option>
+                        <option value="manga">Manga</option>
+                    </select>
+                </label>
+            </div>
+
+            <div class="col">
+                <label for="">Editorial:
+                    <input type="text" id="editorial" name="editorial" class="form-control" [value]=comic[0].editorial>
+                </label>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="">Descripcion:
+            </label>
+            <textarea type="text" id="descripcion" name="descripcion" cols="30" rows="10" class="form-control"
+                [value]=comic[0].descripcion> </textarea>
+        </div>
+
+        <div class="form-row">
+
+
+            <div class="col">
+                <label for="">Nombre del Archivo:
+                    <input type="text" id="nombreArchivo" name="nombreArchivo" class="form-control"
+                        [value]=comic[0].nombreArchivo readonly>
+                </label>
+            </div>
+
+            <div class="col">
+                <label for="">Foto:
+                    <input type="text" id="linkFoto" name="linkFoto" class="form-control" [value]=comic[0].linkFoto>
+                </label>
+            </div>
+
+            <div class="col">
+                <label for="">Archivo:
+                    <input type="text" id="archivo" name="archivo" class="form-control" [value]=comic[0].archivo>
+                </label>
+            </div>
+        </div>
+        <button class="btn btn-success" type="submit">Enviar</button>
+    </form>
+    <br><br><br><br>
+</div>

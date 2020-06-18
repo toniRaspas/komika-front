@@ -14,15 +14,20 @@ export class ComicsService {
   baseUrl: string;
 
 
-
-
   constructor(private httpClient: HttpClient) {
     this.baseUrl = 'http://localhost:3000/comics';
-
   }
 
   getAll(): Promise<any> {
-    return this.httpClient.get(this.baseUrl).toPromise();
+    return new Promise((resolve, reject) => {
+      resolve(this.httpClient.get(this.baseUrl).toPromise());
+    });
+  };
+
+  getComicById(pId): Promise<any> {
+    return new Promise((resolve, reject) => {
+      resolve(this.httpClient.get(this.baseUrl + '/' + pId).toPromise());
+    });
   }
 
 
@@ -31,22 +36,27 @@ export class ComicsService {
       const urlFil = this.baseUrl + '/categoria/' + cat;
       resolve(this.httpClient.get(urlFil).toPromise())
     });
-  }
+  };
 
   getByWords(words: string): Promise<any> {
     return new Promise<any>((resolve, reject) => {
       const urlFil = this.baseUrl + '/titulo/' + words;
       resolve(this.httpClient.get(urlFil).toPromise())
-    })
-  }
-
-
+    });
+  };
 
   getByBoth(cat: string, words: string): Promise<any> {
     return new Promise<any>((resolve, reject) => {
-      const urlFil = this.baseUrl + '/filter/' + cat + '/' + words; resolve(this.httpClient.get(urlFil).toPromise())
-    })
-  }
+      const urlFil = this.baseUrl + '/filter/' + cat + '/' + words;
+      resolve(this.httpClient.get(urlFil).toPromise())
+    });
+  };
+
+  deleteComic(pId): Promise<any> {
+    return new Promise((resolve, reject) => {
+      resolve(this.httpClient.delete(this.baseUrl + '/' + pId).toPromise());
+    });
+  };
 
   /*
     getByBoths(cat, words): Promise<any> {

@@ -12,6 +12,15 @@ router.get('/', (req, res) => {
         });
 });
 
+router.get('/:comicId', async (req, res) => {
+    try {
+        const comic = await Comic.getById(req.params.comicId);
+        res.json(comic);
+    } catch (err) {
+        res.send(err);
+    }
+});
+
 
 /////////FILTRO POR CATEGORIA///////////////////////////////////
 router.get('/categoria/:genero', async (req, res) => {
@@ -46,6 +55,29 @@ router.get('/filter/:genero/:titulo', async (req, res) => {
         res.json(filtro);
     } catch (err) {
         res.send(err)
+    }
+});
+
+
+// Borrar Cómic
+
+router.delete('/:comicId', async (req, res) => {
+    const result = await Comic.deleteById(req.params.comicId);
+    if (result['affectedRows'] === 1) {
+        res.json({ success: 'El cómic ha sido borrado' });
+    } else {
+        res.json({ error: 'Ha habido un problema y no se ha podido borrar la consulta' });
+    }
+});
+
+// Actualizar Info cómic
+
+router.put('/:comicId', async (req, res) => {
+    const result = await Comic.updateById(req.params.comicId, req.body);
+    if (result['affecteRows'] === 1) {
+        res.json({ success: 'Cómic actualizado' });
+    } else {
+        res.json({ error: 'No se ha podido actualizar correctamente' });
     }
 });
 

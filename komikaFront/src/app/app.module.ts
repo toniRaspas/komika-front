@@ -15,6 +15,8 @@ import { VisualizadorComponent } from './visualizador/visualizador.component';
 import { RegistroComponent } from './registro/registro.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireStorageModule, BUCKET } from '@angular/fire/storage';
+import { AdminComponent } from './administracion/admin/admin.component';
+import { EditarComponent } from './administracion/editar/editar.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { AngularFireStorageModule, BUCKET } from '@angular/fire/storage';
     GaleriaComponent,
     VisualizadorComponent,
     RegistroComponent,
+    AdminComponent,
+    EditarComponent
 
   ],
   imports: [
@@ -34,7 +38,7 @@ import { AngularFireStorageModule, BUCKET } from '@angular/fire/storage';
     NgxExtendedPdfViewerModule,
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireStorageModule,
+    AngularFireStorageModule
 
   ],
   providers: [

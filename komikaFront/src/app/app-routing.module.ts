@@ -1,11 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
 import { HomeComponent } from './home/home.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { GaleriaComponent } from './galeria/galeria.component';
 import { VisualizadorComponent } from './visualizador/visualizador.component';
 import { RegistroComponent } from './registro/registro.component';
-import { AccesoGuard } from './acceso.guard';
+import { AdminComponent } from './administracion/admin/admin.component';
+
+
+import { AccesoGuard } from './guards/acceso.guard';
+import { AdminGuard } from './guards/admin.guard';
+import { EditarComponent } from './administracion/editar/editar.component';
 
 
 const routes: Routes = [
@@ -14,6 +20,8 @@ const routes: Routes = [
   { path: 'perfil', component: PerfilComponent, canActivate: [AccesoGuard] },
   { path: 'galeria', component: GaleriaComponent, canActivate: [AccesoGuard] },
   { path: 'view', component: VisualizadorComponent, canActivate: [AccesoGuard] },
+  { path: 'admin', component: AdminComponent },
+  { path: 'editar/:comicId', component: EditarComponent },
   { path: 'registro', component: RegistroComponent },
   { path: '**', redirectTo: 'home' }
 ];

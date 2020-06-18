@@ -8,9 +8,6 @@ const Usuario = require('../models/usuario');
 
 //Registro de usuarios
 router.post('/registro', async (req, res) => {
-
-  console.log(req.body);
-
   const email = await Usuario.getByEmail(req.body.email);
   const user = await Usuario.getByUser(req.body.usuario);
 
@@ -30,11 +27,14 @@ router.post('/registro', async (req, res) => {
 
 //Login de usuarios
 router.post('/login', async (req, res) => {
+
+  console.log(req.body);
+
   const usuario = await Usuario.getByEmail(req.body.email);
   if (usuario) {
     const password = bcrypt.compareSync(req.body.password, usuario.password);
     if (password) {
-      res.json({ success: 'Login Correcto', token: createToken(usuario.id) })
+      res.json({ success: 'Login Correcto', token: createToken(usuario.id), rol: usuario.rol })
     } else {
       res.json({ error: 'El email y/o la contraseña no son correctos' })
     }

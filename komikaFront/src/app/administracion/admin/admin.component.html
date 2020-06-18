@@ -1,0 +1,44 @@
+<div>
+    <div class="table-responsive table-bordered table-hover">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Título</th>
+                    <th scope="col">Autor</th>
+                    <th scope="col">Dibujante</th>
+                    <th scope="col">Año</th>
+                    <th scope="col">Género</th>
+                    <th scope="col">Escuela</th>
+                    <th scope="col">Editorial</th>
+                    <!-- <th scope="col">Descripción</th> -->
+                    <th scope="col">Nombre Archivo</th>
+                    <th scope="col">Link Foto</th>
+                    <th scope="col">Archivo</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let comic of arrComics">
+                <tr>
+                    <td>{{comic.id}}</td>
+                    <td>{{comic.titulo}}</td>
+                    <td>{{comic.autor}}</td>
+                    <td>{{comic.dibujante}}</td>
+                    <td>{{comic.ano | date}}</td>
+                    <td>{{comic.genero}}</td>
+                    <td>{{comic.escuela}}</td>
+                    <td>{{comic.editorial}}</td>
+                    <!-- <td class="overflow-scroll">{{comic.descripcion}}</td> -->
+                    <td>{{comic.nombreArchivo}}</td>
+                    <td><img [src]="comic.linkFoto" class="img-fluid imagen"></td>
+                    <td><a [href]="comic.archivo">Descargar PDF</a></td>
+                    <td>
+                        <button class=" btn btn-success btn-sm ml-1"
+                            [routerLink]="['/editar/'+comic.id]">Editar</button>
+                        <button class="btn btn-danger btn-sm ml-1 mt-1" (click)="onDelete(comic.id)">Borrar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

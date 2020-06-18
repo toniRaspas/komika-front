@@ -1,0 +1,10 @@
+.tablita {
+    width: 100%;
+    table-layout: fixed;
+    overflow-wrap: break-word;
+}
+
+.imagen {
+    height: auto;
+    max-width: 50px;
+}
