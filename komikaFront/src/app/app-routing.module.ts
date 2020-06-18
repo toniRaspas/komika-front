@@ -12,25 +12,22 @@ import { AdminComponent } from './administracion/admin/admin.component';
 import { AccesoGuard } from './guards/acceso.guard';
 import { AdminGuard } from './guards/admin.guard';
 import { EditarComponent } from './administracion/editar/editar.component';
+import { AdminGeneralComponent } from './administracion/admin-general/admin-general.component';
+import { AutoresComponent } from './administracion/autores/autores.component';
+import { EditarAutoresComponent } from './administracion/editar-autores/editar-autores.component';
 
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: 'home', component: HomeComponent },
   { path: 'perfil', component: PerfilComponent, canActivate: [AccesoGuard] },
-<<<<<<< HEAD
   { path: 'galeria', component: GaleriaComponent, canActivate: [AccesoGuard] },
-  { path: 'view', component: VisualizadorComponent, canActivate: [AccesoGuard] },
-  { path: 'admin', component: AdminComponent },
-  { path: 'editar/:comicId', component: EditarComponent },
-=======
-  {
-    path: 'galeria', component: GaleriaComponent, canActivate: [AccesoGuard]
-  },
-  {
-    path: 'galeria/view/:idComic', component: VisualizadorComponent
-  },
->>>>>>> master
+  { path: 'admin', component: AdminGeneralComponent },
+  { path: 'admin/comics', component: AdminComponent },
+  { path: 'comics/editar/:comicId', component: EditarComponent },
+  { path: 'admin/autores', component: AutoresComponent },
+  { path: 'autores/editar/:autorId', component: EditarAutoresComponent },
+  { path: 'galeria/view/:idComic', component: VisualizadorComponent, canActivate: [AccesoGuard] },
   { path: 'registro', component: RegistroComponent },
   { path: '**', redirectTo: 'home' }
 ];

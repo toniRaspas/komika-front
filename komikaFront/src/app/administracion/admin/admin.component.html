@@ -34,7 +34,7 @@
                     <td><a [href]="comic.archivo">Descargar PDF</a></td>
                     <td>
                         <button class=" btn btn-success btn-sm ml-1"
-                            [routerLink]="['/editar/'+comic.id]">Editar</button>
+                            [routerLink]="['/comics/editar/'+comic.id]">Editar</button>
                         <button class="btn btn-danger btn-sm ml-1 mt-1" (click)="onDelete(comic.id)">Borrar</button>
                     </td>
                 </tr>

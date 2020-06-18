@@ -83,9 +83,11 @@ router.delete('/:comicId', async (req, res) => {
 
 // Actualizar Info cómic
 
-router.put('/:comicId', async (req, res) => {
+router.put('/edit/:comicId', async (req, res) => {
+    console.log(req.body);
     const result = await Comic.updateById(req.params.comicId, req.body);
-    if (result['affecteRows'] === 1) {
+    console.log(result);
+    if (result['affectedRows'] === 1) {
         res.json({ success: 'Cómic actualizado' });
     } else {
         res.json({ error: 'No se ha podido actualizar correctamente' });

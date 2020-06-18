@@ -17,6 +17,9 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireStorageModule, BUCKET } from '@angular/fire/storage';
 import { AdminComponent } from './administracion/admin/admin.component';
 import { EditarComponent } from './administracion/editar/editar.component';
+import { AdminGeneralComponent } from './administracion/admin-general/admin-general.component';
+import { AutoresComponent } from './administracion/autores/autores.component';
+import { EditarAutoresComponent } from './administracion/editar-autores/editar-autores.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { EditarComponent } from './administracion/editar/editar.component';
     VisualizadorComponent,
     RegistroComponent,
     AdminComponent,
-    EditarComponent
+    EditarComponent,
+    AdminGeneralComponent,
+    AutoresComponent,
+    EditarAutoresComponent
 
   ],
   imports: [

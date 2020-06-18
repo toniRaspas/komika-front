@@ -29,16 +29,51 @@ Content-Type: application/json
 }
 
 
-###
-PUT http://localhost:3000/comics/11
-Content-Type: application/json
-{
-    "titulo": "tuputamadre"
-    
-    
-}
 
 ###
 DELETE http://localhost:3000/comics/11
+
+
+
+###
+PUT http://localhost:3000/comics/edit/31
 Content-Type: application/json
+
+{
+    "titulo": "tuputamadre",
+    "autor":"asfgh",
+    "dibujante":"dfbn",
+    "ano":"",
+    "genero":"dsffgh",
+    "escuela":"manga",
+    "editorial":"FFFFFFFFFFF",
+    "descripcion":"FFFFFFF",
+    "nombreArchivo":"",
+    "linkFoto":"",
+    "archivo":"",
+    "fk_autor":"3"
+}
+
+
+
+###
+GET http://localhost:3000/autores
+Content-Type: application/json
+
+
+###
+GET http://localhost:3000/autores/31
+Content-Type: application/json
+
+###
+PUT http://localhost:3000/autores/edit/31
+Content-Type: application/json
+
+{
+    "nombre": "Jajajaaj",
+    "biografia":"Nací en la calle"
+}
+
+
+
 

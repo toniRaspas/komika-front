@@ -1,38 +1,38 @@
 <div class="container">
-    <form action="">
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
 
         <div class=" form-group">
             <label for="titulo">Titulo: </label>
-            <input type="text" class="form-control" id="titulo" name="titulo" [value]=comic[0].titulo>
+            <input type="text" class="form-control" id="titulo" name="titulo" formControlName="titulo">
         </div>
 
         <div class="form-group">
             <label for="autor">Autor: </label>
-            <input type="text" class="form-control" id="autor" name="autor" [value]=comic[0].autor>
+            <input type="text" class="form-control" id="autor" name="autor" formControlName="autor">
         </div>
 
         <div class="form-group">
             <label for="">Dibujante:
             </label>
-            <input type="text" id="dibujante" name="dibujante" class="form-control" [value]=comic[0].dibujante>
+            <input type="text" id="dibujante" name="dibujante" class="form-control" formControlName="dibujante">
         </div>
 
         <div class="form-row">
             <div class="col">
-                <label for="">Ano:
-                    <input type="date" id="ano" name="ano" class="form-control" [value]=comic[0].ano>
+                <label for="">Año:
+                    <input type="date" id="ano" name="ano" class="form-control" formControlName="ano">
                 </label>
             </div>
 
             <div class="col">
                 <label for="">Género:
-                    <input type="text" id="genero" name="genero" class="form-control" [value]=comic[0].genero>
+                    <input type="text" id="genero" name="genero" class="form-control" formControlName="genero">
                 </label>
             </div>
 
             <div class="col">
                 <label for="">Escuela:
-                    <select type="text" id="escuela" name="escuela" class="form-control" [value]=comic[0].escuela>
+                    <select type="text" id="escuela" name="escuela" class="form-control" formControlName="escuela">
                         <option value="comic">Cómic</option>
                         <option value="bande dessine">Bande dessiné</option>
                         <option value="manga">Manga</option>
@@ -42,7 +42,7 @@
 
             <div class="col">
                 <label for="">Editorial:
-                    <input type="text" id="editorial" name="editorial" class="form-control" [value]=comic[0].editorial>
+                    <input type="text" id="editorial" name="editorial" class="form-control" formControlName="editorial">
                 </label>
             </div>
         </div>
@@ -52,7 +52,7 @@
             <label for="">Descripcion:
             </label>
             <textarea type="text" id="descripcion" name="descripcion" cols="30" rows="10" class="form-control"
-                [value]=comic[0].descripcion> </textarea>
+                formControlName="descripcion"> </textarea>
         </div>
 
         <div class="form-row">
@@ -61,22 +61,28 @@
             <div class="col">
                 <label for="">Nombre del Archivo:
                     <input type="text" id="nombreArchivo" name="nombreArchivo" class="form-control"
-                        [value]=comic[0].nombreArchivo readonly>
+                        formControlName="nombreArchivo" readonly>
                 </label>
             </div>
 
             <div class="col">
                 <label for="">Foto:
-                    <input type="text" id="linkFoto" name="linkFoto" class="form-control" [value]=comic[0].linkFoto>
+                    <input type="text" id="linkFoto" name="linkFoto" class="form-control" formControlName="linkFoto">
                 </label>
             </div>
 
             <div class="col">
                 <label for="">Archivo:
-                    <input type="text" id="archivo" name="archivo" class="form-control" [value]=comic[0].archivo>
+                    <input type="text" id="archivo" name="archivo" class="form-control" formControlName="archivo">
                 </label>
             </div>
         </div>
+
+        <div class=" form-group">
+            <label for="titulo">fk_autor: </label>
+            <input type="text" class="form-control" id="fk_autor" name="fk_autor" formControlName="fk_autor">
+        </div>
+
         <button class="btn btn-success" type="submit">Enviar</button>
     </form>
     <br><br><br><br>
