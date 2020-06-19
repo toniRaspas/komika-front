@@ -48,7 +48,6 @@ export class ComicsService {
 
   getByBoth(cat: string, words: string): Promise<any> {
     return new Promise<any>((resolve, reject) => {
-<<<<<<< HEAD
       const urlFil = this.baseUrl + '/filter/' + cat + '/' + words;
       resolve(this.httpClient.get(urlFil).toPromise())
     });
@@ -59,12 +58,6 @@ export class ComicsService {
       resolve(this.httpClient.delete(this.baseUrl + '/' + pId).toPromise());
     });
   };
-=======
-      const urlFil = this.baseUrl + '/filter/' + cat + '/' + words; resolve(this.httpClient.get(urlFil).toPromise())
-    })
-  }
-  ////////////lector de comics////////////
->>>>>>> master
 
   viewById(id: string): Promise<any> {
     return new Promise<any>((resolve, reject) => {

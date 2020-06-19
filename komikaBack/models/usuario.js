@@ -37,11 +37,6 @@ const getByRole = (pRol) => {
 }
 
 
-
-
-
-
-
 module.exports = {
     create, getByEmail, getByUser
 }

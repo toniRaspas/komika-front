@@ -37,6 +37,8 @@ export class HomeComponent implements OnInit {
       if (response.success) {
         await this.usuariosService.createLocalToken(response.token);
         await this.usuariosService.retrieveLocalToken();
+        await this.usuariosService.createLocalEmail(response.email);
+        await this.usuariosService.retrieveLocalEmail();
         this.router.navigate(['/galeria']);
       }
     } catch (err) {

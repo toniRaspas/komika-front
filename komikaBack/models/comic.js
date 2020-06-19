@@ -92,11 +92,9 @@ module.exports = {
     getByCat,
     getByTit,
     getByFilter,
-<<<<<<< HEAD
-    deleteById,
+    getByIdViewer,
     updateById,
+    deleteById,
     getById
-=======
-    getByIdViewer
->>>>>>> master
+
 }

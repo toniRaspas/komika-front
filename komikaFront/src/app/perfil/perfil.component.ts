@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UsuariosService } from '../servicios/usuarios.service';
+import { Usuario } from '../models/usuarios.model'
 
 @Component({
   selector: 'app-perfil',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent implements OnInit {
+  arrUser: Usuario;
+  constructor(private usersService: UsuariosService) { }
 
-  constructor() { }
-
-  ngOnInit(): void {
+  async ngOnInit() {
+    const email = localStorage.getItem('userEmail');
+    this.arrUser = await this.usersService.getUserByEmail(email);
+    console.log(this.arrUser.foto);
   }
 
 }

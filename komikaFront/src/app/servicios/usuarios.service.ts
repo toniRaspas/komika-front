@@ -30,13 +30,37 @@ export class UsuariosService {
     var token = pResponse;
     return localStorage.setItem('userToken', token);
   };
+
   retrieveLocalToken() {
     var token = localStorage.getItem('userToken');
     console.log(token);
+    return token;
   };
   deleteToken() {
     localStorage.removeItem('userToken');
   };
+
+  createLocalEmail(pEmail) {
+    var email = pEmail;
+    return localStorage.setItem('userEmail', email);
+  };
+
+  retrieveLocalEmail() {
+    var email = localStorage.getItem('userEmail');
+    console.log(email);
+    return email;
+  };
+  deleteEmail() {
+    localStorage.removeItem('userEmail');
+  };
+  getUserByEmail(pEmail) {
+    return new Promise<any>((resolve, reject) => {
+      const newUrl = this.baseUrl + 'login/' + pEmail;
+      console.log(newUrl);
+
+      resolve(this.httpClient.get(newUrl).toPromise())
+    })
+  }
 
 
 

@@ -28,14 +28,19 @@ Content-Type: application/json
     "password": "qwerty123"
 }
 
+###
+
+GET http://localhost:3000/users/login/boketto.producciones@gmail.com
 
 ###
-PUT http://localhost:3000/comics/11
+GET http://localhost:3000/users/anita@gmail.com
+
+###
+PUT http://localhost:3000/comics/edit/31
 Content-Type: application/json
+
 {
-    "titulo": "tuputamadre"
-    
-    
+    "titulo": "carajo"   
 }
 
 ###
