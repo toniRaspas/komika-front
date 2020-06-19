@@ -9,6 +9,7 @@ const cors = require('cors');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const comicRouter = require('./routes/comics');
+const autorRouter = require('./routes/autores');
 
 require('dotenv').config();
 
@@ -31,6 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/comics', comicRouter);
+app.use('/autores', autorRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -32,6 +32,12 @@ Content-Type: application/json
 
 GET http://localhost:3000/users/login/boketto.producciones@gmail.com
 
+
+###
+DELETE http://localhost:3000/comics/11
+
+
+
 ###
 GET http://localhost:3000/users/anita@gmail.com
 
@@ -40,10 +46,40 @@ PUT http://localhost:3000/comics/edit/31
 Content-Type: application/json
 
 {
-    "titulo": "carajo"   
+    "titulo": "tuputamadre",
+    "autor":"asfgh",
+    "dibujante":"dfbn",
+    "ano":"",
+    "genero":"dsffgh",
+    "escuela":"manga",
+    "editorial":"FFFFFFFFFFF",
+    "descripcion":"FFFFFFF",
+    "nombreArchivo":"",
+    "linkFoto":"",
+    "archivo":"",
+    "fk_autor":"3"
 }
 
+
+
 ###
-DELETE http://localhost:3000/comics/11
+GET http://localhost:3000/autores
 Content-Type: application/json
+
+
+###
+GET http://localhost:3000/autores/31
+Content-Type: application/json
+
+###
+PUT http://localhost:3000/autores/edit/31
+Content-Type: application/json
+
+{
+    "nombre": "Jajajaaj",
+    "biografia":"Nací en la calle"
+}
+
+
+
 

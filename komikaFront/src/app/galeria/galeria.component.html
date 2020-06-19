@@ -16,15 +16,15 @@
 
         <h2 class="text-center col-12">GALERIA</h2>
 
-        <div *ngFor="let comic of arrComics" class="col-4 h-100">
+        <div *ngFor="let comic of arrComics" class="col-lg-4 col-sm-12 h-100">
             <img [src]="comic.linkFoto">
             <h3>{{comic.titulo}}</h3>
-            <p>Autor:{{comic.autor}}</p>
-            <p>Dibujante:{{comic.dibujante}}</p>
-            <p>Año:{{comic.ano}}</p>
-            <p>Genero:{{comic.genero}}</p>
-            <p>Escuela:{{comic.escuela}}</p>
-            <p>Editorial:{{comic.editorial}}</p>
+            <p>Autor: {{comic.autor}}</p>
+            <p>Dibujante: {{comic.dibujante}}</p>
+            <p>Año: {{comic.ano}}</p>
+            <p>Genero: {{comic.genero}}</p>
+            <p>Escuela: {{comic.escuela}}</p>
+            <p>Editorial: {{comic.editorial}}</p>
             <button [routerLink]="['/galeria/view', comic.id]">LEER</button>
         </div>
 

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Comic } from '../models/comics.model';
-import { Autor } from '../models/autores.model';
 import { HttpClient } from '@angular/common/http';
 
 
@@ -10,7 +9,6 @@ import { HttpClient } from '@angular/common/http';
 export class ComicsService {
 
   comics: Comic[];
-  autores: Autor[];
   baseUrl: string;
   //visualizador: string;
 
@@ -61,9 +59,17 @@ export class ComicsService {
 
   viewById(id: string): Promise<any> {
     return new Promise<any>((resolve, reject) => {
-      const urlPdf = this.baseUrl + '/pdf/' + id; resolve(this.httpClient.get(urlPdf).toPromise())
-    })
-  }
+      const urlPdf = this.baseUrl + '/pdf/' + id;
+      resolve(this.httpClient.get(urlPdf).toPromise());
+    });
+  };
+
+  editComic(pId: number, pValues): Promise<any> {
+    return new Promise((resolve, reject) => {
+      resolve(this.httpClient.put(this.baseUrl + '/edit/' + pId, pValues).toPromise());
+    });
+  };
+
 
 }
 

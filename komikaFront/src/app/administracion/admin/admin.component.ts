@@ -15,13 +15,13 @@ export class AdminComponent implements OnInit {
 
   async ngOnInit() {
     this.arrComics = await this.comicsService.getAll();
-    console.log(this.arrComics);
   }
 
 
   async onDelete(pId) {
     console.log(pId);
     await this.comicsService.deleteComic(pId);
+    window.location.reload();
   }
 
 

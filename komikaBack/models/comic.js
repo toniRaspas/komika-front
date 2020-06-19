@@ -65,6 +65,7 @@ const deleteById = (pId) => {
 };
 
 const updateById = (pId, { titulo, autor, dibujante, ano, genero, escuela, editorial, descripcion, nombreArchivo, linkFoto, archivo, fk_autor }) => {
+    console.log(titulo);
     return new Promise((resolve, reject) => {
         db.query('update comics set titulo=?, autor=?, dibujante=?, ano=?, genero=?, escuela=?, editorial=?, descripcion=?, nombreArchivo=?, linkFoto=?, archivo=?, fk_autor=? where id=?', [titulo, autor, dibujante, ano, genero, escuela, editorial, descripcion, nombreArchivo, linkFoto, archivo, fk_autor, pId], (err, result) => {
             if (err) reject(err);
@@ -80,8 +81,8 @@ const getByIdViewer = (pId) => {
         db.query('SELECT comics.archivo FROM comics WHERE comics.id = ?', [pId], (err, rows) => {
             if (err) reject(err);
             resolve(rows);
-        })
-    })
+        });
+    });
 }
 
 
