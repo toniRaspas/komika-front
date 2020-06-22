@@ -34,12 +34,12 @@ GET http://localhost:3000/users/login/boketto.producciones@gmail.com
 
 
 ###
-DELETE http://localhost:3000/comics/11
+DELETE http://localhost:3000/comics/10
 
 
 
 ###
-GET http://localhost:3000/users/anita@gmail.com
+GET http://localhost:3000/users/anitaheart
 
 ###
 PUT http://localhost:3000/comics/edit/31
@@ -80,6 +80,12 @@ Content-Type: application/json
     "biografia":"Nací en la calle"
 }
 
+###
+
+GET  http://localhost:3000/indices/161
+
+###
 
 
+POST http://localhost:3000/indices/tbiCreate/63/8
 

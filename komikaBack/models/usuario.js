@@ -25,18 +25,28 @@ const getByUser = (pUsuario) => {
     return new Promise((resolve, reject) => {
         db.query('select * from usuarios where usuario=?', [pUsuario], (err, rows) => {
             if (err) reject(err);
-            resolve(rows[0]);
+            resolve(rows);
         });
     });
 };
-
+/*
 const getByRole = (pRol) => {
     return new Promise((resolve, reject) => {
         db.query('')
     });
 }
+*/
+const getByUserId = (pUsuarioId) => {
+    return new Promise((resolve, reject) => {
+        db.query('select * from usuarios where id=?', [pUsuarioId], (err, rows) => {
+            if (err) reject(err);
+            resolve(rows);
+        });
+    });
+};
+///////////////////////////Alvaro esto he decidido ponerlo finalmente aqui poruqe, realmente estamos trabajando con la info de usuario
 
 
 module.exports = {
-    create, getByEmail, getByUser
+    create, getByEmail, getByUser, getByUserId
 }

@@ -4,20 +4,21 @@
         <h3 class="">{{arrUser.usuario}}</h3>
         <button>Configurar</button>
     </div>
-    <div class="">
-        <h2>Tus lecturas</h2>
-        <h4>Daredevil VS Hitler</h4>
-        <h4>Woodro</h4>
-        <img src="https://1.bp.blogspot.com/-ceMc0iZBLz4/Vor_KDpU2qI/AAAAAAAAOQc/UaHT80HrUAM/s1600/Daredevil01.jpg">
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus omnis et a nesciunt mollitia expedita
-            tempora enim rem facere magni eum voluptatibus doloribus id, fugit quidem veritatis laboriosam. Repellendus.
+    <h2>Tus lecturas</h2>
+
+
+    <div *ngFor="let comic of arrIndex">
+
+        <h4>{{comic.titulo}}</h4>
+        <h4>{{comic.autor}}</h4>
+        <img [src]="comic.linkFoto">
+        <p>{{comic.descripcion}}
         </p>
-        <label>Estado:</label>
-        <p>Leyendo</p>
+        <label>Estado: {{comic.estado}}</label>
         <label>Puntuación:</label>
-        <p>ver menu estrellas</p>
-        <button>LEER</button>
+        <p>{{comic.puntuacion}}</p>
+        <button [routerLink]="['/galeria/view', comic.id]">LEER</button>
+        <!--quiero sacar una query que a partir de fk_usuario y fk_comic me de la-->
 
     </div>
-
 </div>

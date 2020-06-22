@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Comic } from '../models/comics.model';
 import { HttpClient } from '@angular/common/http';
+import { Indice } from '../models/indices.model'
 
 
 @Injectable({
@@ -10,11 +11,15 @@ export class ComicsService {
 
   comics: Comic[];
   baseUrl: string;
+  indiceUrl: string;
+  indice: Indice;
   //visualizador: string;
 
 
   constructor(private httpClient: HttpClient) {
     this.baseUrl = 'http://localhost:3000/comics';
+    this.indiceUrl = 'http://localhost:3000/indices';
+
   }
 
   getAll(): Promise<any> {
@@ -69,6 +74,13 @@ export class ComicsService {
       resolve(this.httpClient.put(this.baseUrl + '/edit/' + pId, pValues).toPromise());
     });
   };
+
+  indexByUser(pId: number): Promise<Indice> {
+    return new Promise<any>((resolve, reject) => {
+      const urlIndx = this.indiceUrl + '/' + pId;
+      resolve(this.httpClient.get(urlIndx).toPromise())
+    })
+  }
 
 
 }

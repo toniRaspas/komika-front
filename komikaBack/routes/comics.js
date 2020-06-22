@@ -96,7 +96,4 @@ router.put('/edit/:pId', async (req, res) => {
 
 
 
-
-
-
 module.exports = router;

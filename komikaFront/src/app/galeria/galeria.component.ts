@@ -24,6 +24,7 @@ export class GaleriaComponent implements OnInit {
 
   async ngOnInit() {
     this.arrComics = await this.comicsService.getAll();
+
   }
 
   onChange($event) {
@@ -69,16 +70,16 @@ export class GaleriaComponent implements OnInit {
 
     }
   }
-  /*
-    viewerComic(comic) {
-      console.log(comic);
-      this.comicsService.viewById(comic)
-        .then(arrViewId => {
-          this.arrComics = arrViewId; console.log(this.arrComics);
-        })
-  
-    }
-  */
+
+  viewerComic(comic) {
+    console.log(comic);
+    this.comicsService.viewById(comic)
+      .then(arrViewId => {
+        this.arrComics = arrViewId; console.log(this.arrComics);
+      })
+
+  }
+
 
 
 }

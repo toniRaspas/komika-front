@@ -1,4 +1,5 @@
 export class Usuario {
+    id: number;
     nombre: string;
     usuario: string;
     email: string;
@@ -6,7 +7,8 @@ export class Usuario {
     foto: string;
 
 
-    constructor(pNombre, pUsuario, pEmail, pPassword, pFoto) {
+    constructor(pId, pNombre, pUsuario, pEmail, pPassword, pFoto) {
+        this.id = pId;
         this.nombre = pNombre;
         this.usuario = pUsuario;
         this.email = pEmail;

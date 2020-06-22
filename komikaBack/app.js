@@ -10,6 +10,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const comicRouter = require('./routes/comics');
 const autorRouter = require('./routes/autores');
+const indiceRouter = require('./routes/indices')
 
 require('dotenv').config();
 
@@ -33,6 +34,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/comics', comicRouter);
 app.use('/autores', autorRouter);
+app.use('/indices', indiceRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

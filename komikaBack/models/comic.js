@@ -84,7 +84,7 @@ const getByIdViewer = (pId) => {
         });
     });
 }
-
+////////////////crear el index de tbi usuarios
 
 
 
@@ -97,5 +97,4 @@ module.exports = {
     updateById,
     deleteById,
     getById
-
 }

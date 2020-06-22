@@ -1,6 +1,6 @@
-var router = require('express').Router();
-var bcrypt = require('bcrypt');
-var jwt = require('jsonwebtoken');
+const router = require('express').Router();
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 const Usuario = require('../models/usuario');
 
@@ -72,12 +72,39 @@ function createToken(pUsuarioId) {
 //acceder a los datos del perfil por usuario
 router.get('/:usuario', async (req, res) => {
   const usuario = await Usuario.getByUser(req.params.usuario);
-  console.log(usuario);
+  console.log(req.params.usuario);
   try {
     res.json(usuario);
   } catch (err) {
     res.send(err)
   }
 });
+
+router.get('/id/:id', async (req, res) => {
+  const usuario = await Usuario.getByUser(req.params.id);
+  console.log(req.params.usuario);
+  try {
+    res.json(id);
+  } catch (err) {
+    res.send(err)
+  }
+});
+
+
+
+
+/*
+
+const getAllByUserId = (userId) => {
+  return new Promise((resolve, reject) => {
+    db.query('select * from tbi_usuarios_comics where fk_usuario = ?', [userId], (err, rows) => {
+      if (err) reject(err);
+      resolve(rows)
+    })
+  })
+}
+*/
+
+
 
 module.exports = router;
