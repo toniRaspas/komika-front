@@ -19,7 +19,7 @@ export class CrearComicComponent implements OnInit {
   createForm: FormGroup;
 
 
-  constructor() {
+  constructor(private comicsService: ComicsService) {
     {
       this.createForm = new FormGroup({
         'titulo': new FormControl(''),
@@ -73,12 +73,11 @@ export class CrearComicComponent implements OnInit {
   };
 
 
-  onSubmit() {
+  async  onSubmit() {
 
     this.createForm.value.archivo = this.url;
     let createComic = this.createForm.value;
-
-    console.log(createComic);
+    await this.comicsService.createComic(createComic);
   }
 
 

@@ -103,13 +103,8 @@ module.exports = {
     getByFilter,
     getByIdViewer,
     updateById,
-<<<<<<< Updated upstream
     deleteById,
-    getById
-
-=======
     getById,
     getByIdViewer,
     createComic
->>>>>>> Stashed changes
 }

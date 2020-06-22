@@ -41,6 +41,7 @@ Content-Type: application/json
 
 ###
 POST http://localhost:3000/comics/create
+Content-Type: application/json
 
 {
     "titulo": "tuputamadre",
