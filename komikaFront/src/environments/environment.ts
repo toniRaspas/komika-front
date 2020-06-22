@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  firebase: {
+  firebaseConfig: {
     apiKey: "AIzaSyCyMzaslbljLCXthAusgVzHc385ZKbsELI",
     authDomain: "app-komika.firebaseapp.com",
     databaseURL: "https://app-komika.firebaseio.com",

@@ -83,14 +83,31 @@ router.delete('/:comicId', async (req, res) => {
 
 // Actualizar Info cómic
 
+<<<<<<< Updated upstream
 router.put('/edit/:pId', async (req, res) => {
     const result = await Comic.updateById(req.params.pId, req.body);
+=======
+router.put('/edit/:comicId', async (req, res) => {
+    const result = await Comic.updateById(req.params.comicId, req.body);
+>>>>>>> Stashed changes
     if (result['affectedRows'] === 1) {
         console.log(req.body.pComic);
         res.json({ success: 'Cómic actualizado' });
     } else {
         console.log(req.body.pComic);
         res.json({ error: 'No se ha podido actualizar correctamente' });
+    }
+});
+
+router.post('/create', async (req, res) => {
+    console.log(req.body);
+    result = await Comic.createComic(req.body);
+    console.log(result);
+
+    if (result['affectedRows'] === 1) {
+        res.json({ success: 'Cómic creado' });
+    } else {
+        res.json({ error: 'Ha habido un error en la creación' });
     }
 });
 

@@ -65,7 +65,6 @@ const deleteById = (pId) => {
 };
 
 const updateById = (pId, { titulo, autor, dibujante, ano, genero, escuela, editorial, descripcion, nombreArchivo, linkFoto, archivo, fk_autor }) => {
-    console.log(titulo);
     return new Promise((resolve, reject) => {
         db.query('update comics set titulo=?, autor=?, dibujante=?, ano=?, genero=?, escuela=?, editorial=?, descripcion=?, nombreArchivo=?, linkFoto=?, archivo=?, fk_autor=? where id=?', [titulo, autor, dibujante, ano, genero, escuela, editorial, descripcion, nombreArchivo, linkFoto, archivo, fk_autor, pId], (err, result) => {
             if (err) reject(err);
@@ -83,7 +82,16 @@ const getByIdViewer = (pId) => {
             resolve(rows);
         });
     });
-}
+};
+
+const createComic = ({ titulo, autor, dibujante, ano, genero, escuela, editorial, descripcion, nombreArchivo, linkFoto, archivo, fk_autor }) => {
+    return new Promise((resolve, reject) => {
+        db.query('insert into comics (titulo, autor, dibujante,ano, genero, escuela, editorial, descripcion, nombreArchivo, linkFoto, archivo, fk_autor) values (?,?,?,?,?,?,?,?,?,?,?,?)', [titulo, autor, dibujante, ano, genero, escuela, editorial, descripcion, nombreArchivo, linkFoto, archivo, fk_autor], (err, results) => {
+            if (err) reject(err);
+            resolve(results);
+        });
+    });
+};
 
 
 
@@ -95,7 +103,13 @@ module.exports = {
     getByFilter,
     getByIdViewer,
     updateById,
+<<<<<<< Updated upstream
     deleteById,
     getById
 
+=======
+    getById,
+    getByIdViewer,
+    createComic
+>>>>>>> Stashed changes
 }

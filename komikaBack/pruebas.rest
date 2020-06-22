@@ -6,27 +6,6 @@ Content-Type: application/json
 GET http://localhost:3000/comics/3
 Content-Type: application/json
 
-###
-POST http://localhost:3000/users/registro
-Content-Type: application/json
-
-{
-    "nombre":"Antonio",
-    "usuario": "Tonieras",
-    "email": "tonieras@gmail.com",
-    "password": "qwerty123",
-    "rol": ""
-}
-
-###
-
-POST http://localhost:3000/users/login
-Content-Type: application/json
-
-{
-    "email":"anita@gmail.com",
-    "password": "qwerty123"
-}
 
 ###
 
@@ -60,7 +39,25 @@ Content-Type: application/json
     "fk_autor":"3"
 }
 
+###
+POST http://localhost:3000/comics/create
 
+{
+    "titulo": "tuputamadre",
+    "autor":"asfgh",
+    "dibujante":"dfbn",
+    "ano":"",
+    "genero":"dsffgh",
+    "escuela":"manga",
+    "editorial":"FFFFFFFFFFF",
+    "descripcion":"FFFFFFF",
+    "nombreArchivo":"",
+    "linkFoto":"",
+    "archivo":"",
+    "fk_autor":"3"
+}
+
+// AUTORES *************************************************
 
 ###
 GET http://localhost:3000/autores
@@ -78,6 +75,31 @@ Content-Type: application/json
 {
     "nombre": "Jajajaaj",
     "biografia":"Nací en la calle"
+}
+
+
+//USUARIOS*****************************************************
+
+###
+POST http://localhost:3000/users/registro
+Content-Type: application/json
+
+{
+    "nombre":"Antonio",
+    "usuario": "Tonieras",
+    "email": "tonieras@gmail.com",
+    "password": "qwerty123",
+    "rol": ""
+}
+
+###
+
+POST http://localhost:3000/users/login
+Content-Type: application/json
+
+{
+    "email":"anita@gmail.com",
+    "password": "qwerty123"
 }
 
 
