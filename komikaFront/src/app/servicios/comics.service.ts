@@ -82,6 +82,11 @@ export class ComicsService {
     })
   }
 
+  createComic(pValues): Promise<any> {
+    return new Promise((resolve, reject) => {
+      resolve(this.httpClient.post(this.baseUrl + '/create/', pValues).toPromise());
+    });
+  }
 
 }
 
