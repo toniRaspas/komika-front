@@ -1,6 +1,31 @@
+header {
+    background-image: linear-gradient(to right,var(--color-fuente) , crimson);
+    height: 60px;
+}
+
+
+
+.cabecera a {
+    font-family: var(--fuente-principal);
+    font-size: 1.5em;
+    color:  black;
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+}
+
+
+
 
 
 footer {
+    margin-top: 30px;
     height: 50px;
-    background-color: var(--color-fuente);
+    background-image: linear-gradient(to right,var(--color-fuente) , crimson);
+    font-family: var(--fuente-secundaria);
+    font-weight: bold;
+    padding: 1.825em 0;
+    text-align: center;
 }

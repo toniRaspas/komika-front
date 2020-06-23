@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UsuariosService } from '../servicios/usuarios.service';
 import { Router } from '@angular/router';
+import { AdminGuard } from '../guards/admin.guard';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,8 @@ export class HomeComponent implements OnInit {
   login: FormGroup;
   constructor(
     private usuariosService: UsuariosService,
-    private router: Router
+    private router: Router,
+    private adminGuard: AdminGuard
   ) {
     this.login = new FormGroup({
       email: new FormControl('', [Validators.required,
@@ -31,8 +33,6 @@ export class HomeComponent implements OnInit {
   async onSubmit() {
     try {
       const response = await this.usuariosService.login(this.login.value);
-
-      console.log(response);
 
       if (response.success) {
         await this.usuariosService.createLocalToken(response.token);

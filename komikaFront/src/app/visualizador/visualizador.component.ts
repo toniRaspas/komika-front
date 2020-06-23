@@ -21,38 +21,19 @@ export class VisualizadorComponent implements OnInit {
     this.activateRoute.params.subscribe((params) => {
       const idesVarios = params.idComic;
       this.id = idesVarios;
-      })
-      this.comicsService.viewById(this.id).then(arrViewId =>{this.arrComics = arrViewId;
-
-        
-        console.log(this.arrComics)
-      })
-      console.log(this.arrComics);
-      
-        
+    });
+    this.comicsService.viewById(this.id).then(arrViewId => {
+    this.arrComics = arrViewId;
+    });
   }
- 
-  
-  
-  
-  }
- 
-  
 
 
 
-  /*
-    ngOnInit(): void {
-      this.activateRoute.params.subscribe((params) => {
-        console.log(params.idComic);
-  
-        // const archivo = recComic(params.idComic)
-      })
-  */
-  /*recComic(pComic){
-    this.comicsService.viewById(pComic)
-  }
-*/
+
+}
+
+
+
 
 
 

@@ -29,33 +29,12 @@ export class PerfilComponent implements OnInit {
   async ngOnInit() {
     const email = localStorage.getItem('userEmail');
     this.arrUser = await this.usersService.getUserByEmail(email);
-    console.log(this.arrUser);
     const id = this.arrUser.id;
-
     this.arrIndex = await this.comicsService.indexByUser(id);
-    console.log(this.arrIndex)
-
-
-    // this.arrComics = await this.comicsService.getComicById(this.arrIndex.fk_comic);
-    //console.log(this.arrComics);
-
-    //this.arrComics = await this.comicsService.getComicById(caca);
-
 
 
   }
 
-  /*
-  this.arrIndex = await this.comicsService.indexByUser(id);
-      console.log(this.arrIndex);
-  
-  
-  
-  
-      this.arrComics = await this.comicsService.getComicById(this.arrIndex.fk_comic);
-  
-      console.log(this.arrComics);
-  */
 
 
 

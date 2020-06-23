@@ -75,7 +75,7 @@ export class GaleriaComponent implements OnInit {
     console.log(comic);
     this.comicsService.viewById(comic)
       .then(arrViewId => {
-        this.arrComics = arrViewId; console.log(this.arrComics);
+        this.arrComics = arrViewId;
       })
 
   }

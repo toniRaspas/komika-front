@@ -5,6 +5,7 @@ import * as firebase from 'firebase';
 
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ComicsService } from 'src/app/servicios/comics.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-crear-comic',
@@ -19,7 +20,10 @@ export class CrearComicComponent implements OnInit {
   createForm: FormGroup;
 
 
-  constructor(private comicsService: ComicsService) {
+  constructor(
+    private comicsService: ComicsService,
+    private router: Router
+  ) {
     {
       this.createForm = new FormGroup({
         'titulo': new FormControl(''),
@@ -78,6 +82,7 @@ export class CrearComicComponent implements OnInit {
     this.createForm.value.archivo = this.url;
     let createComic = this.createForm.value;
     await this.comicsService.createComic(createComic);
+    this.router.navigate(['/admin/comics/']);
   }
 
 

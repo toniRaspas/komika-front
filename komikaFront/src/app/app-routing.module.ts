@@ -27,12 +27,12 @@ const routes: Routes = [
   { path: 'galeria/view/:idComic', component: VisualizadorComponent, canActivate: [AccesoGuard] },
 
 
-  { path: 'admin', component: AdminGeneralComponent },
-  { path: 'admin/comics', component: AdminComponent },
-  { path: 'admin/comics/crear', component: CrearComicComponent },
-  { path: 'comics/editar/:comicId', component: EditarComponent },
-  { path: 'admin/autores', component: AutoresComponent },
-  { path: 'autores/editar/:autorId', component: EditarAutoresComponent },
+  { path: 'admin', component: AdminGeneralComponent, canActivate: [AccesoGuard, AdminGuard] },
+  { path: 'admin/comics', component: AdminComponent, canActivate: [AccesoGuard, AdminGuard] },
+  { path: 'admin/comics/crear', component: CrearComicComponent, canActivate: [AccesoGuard, AdminGuard] },
+  { path: 'comics/editar/:comicId', component: EditarComponent, canActivate: [AccesoGuard, AdminGuard] },
+  { path: 'admin/autores', component: AutoresComponent, canActivate: [AccesoGuard, AdminGuard] },
+  { path: 'autores/editar/:autorId', component: EditarAutoresComponent, canActivate: [AccesoGuard, AdminGuard] },
 
 
   { path: '**', redirectTo: 'home' }
