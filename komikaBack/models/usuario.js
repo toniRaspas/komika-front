@@ -15,7 +15,6 @@ const getByEmail = (pEmail) => {
         db.query('select * from usuarios where email=?', [pEmail], (err, rows) => {
             if (err) reject(err);
             resolve(rows[0]);
-
         });
     });
 }
@@ -29,13 +28,7 @@ const getByUser = (pUsuario) => {
         });
     });
 };
-/*
-const getByRole = (pRol) => {
-    return new Promise((resolve, reject) => {
-        db.query('')
-    });
-}
-*/
+
 const getByUserId = (pUsuarioId) => {
     return new Promise((resolve, reject) => {
         db.query('select * from usuarios where id=?', [pUsuarioId], (err, rows) => {

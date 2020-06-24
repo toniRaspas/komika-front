@@ -22,17 +22,15 @@ export class VisualizadorComponent implements OnInit {
   arrDescripcion: Comic[];
   url: string;
 
-
-
+  constructor(private activateRoute: ActivatedRoute, private comicsService: ComicsService, private usersService: UsuariosService) {
 
     this.id;
     this.arrIndex = [];
     this.pagina = [];
-    //this.idUser
     this.url;
   }
-  async ngOnInit() {
 
+  async ngOnInit() {
 
     this.activateRoute.params.subscribe((params) => {
       const idesVarios = params.idComic;
@@ -52,27 +50,19 @@ export class VisualizadorComponent implements OnInit {
           console.log(this.pagina.pagina);
 
 
-        })
+        });
+      });
+    });
 
-
-
-      })
-
-
-    })
+    //RECUPERAR DESCRIPCION Y LINK ARCHIVO
     this.arrDescripcion = await this.comicsService.getByDescription(this.id);
-
 
     this.comicsService.viewById(this.id).then(arrViewId => {
       this.linkArchivo = arrViewId;
       console.log(this.linkArchivo);
 
     });
-
-<<<<<<< Updated upstream
-
-
-  }
+  };
 
   async savePage($event) {
     console.log('hola cagarro')
@@ -81,10 +71,6 @@ export class VisualizadorComponent implements OnInit {
       const idesVarios = params.idComic;
       this.id = idesVarios;
     });
-=======
-  };
-
->>>>>>> Stashed changes
 
     ///////////////////////////////////////////////
     const email = localStorage.getItem('userEmail');
@@ -101,12 +87,9 @@ export class VisualizadorComponent implements OnInit {
     const pgs = await this.comicsService.getPag(fkUser, this.id);
     this.pagina = pgs;
     console.log(this.pagina.pagina);
+  };
 
 
-
-
-<<<<<<< Updated upstream
-  }
 
 
 
@@ -114,17 +97,8 @@ export class VisualizadorComponent implements OnInit {
 }
 
 
-//updatePag(pUsuario, pComic, pPage)
-/*
-   const email = localStorage.getItem('userEmail');
-    this.arrUser = await this.usersService.getUserByEmail(email);
-    console.log(this.arrUser);
-    const id = this.arrUser.id;
-*/
 
 
-=======
->>>>>>> Stashed changes
 
 
 

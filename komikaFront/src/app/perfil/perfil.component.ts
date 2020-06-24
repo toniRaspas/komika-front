@@ -15,11 +15,16 @@ import { ComicsService } from '../servicios/comics.service';
   styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent implements OnInit {
+
+  itemsPerSlide = 3;
+  singleSlideOffset = true;
+
   arrUser: Usuario;
   arrComics: Comic[];
   arrIndex: any;
   arrRead: any;
   arrReading: any;
+  perfil: string;
 
 
   constructor(private usersService: UsuariosService, private comicsService: ComicsService) {
@@ -27,33 +32,43 @@ export class PerfilComponent implements OnInit {
     this.arrIndex = [];
     this.arrRead = [];
     this.arrReading = [];
+    this.perfil = '../../assets/images/profile.png'
 
   }
 
 
-
-
-
   async ngOnInit() {
+
     const email = localStorage.getItem('userEmail');
     this.arrUser = await this.usersService.getUserByEmail(email);
     const id = this.arrUser.id;
     this.arrIndex = await this.comicsService.indexByUser(id);
-    this.arrRead = await this.arrIndex.filter(comic => comic.estado == 'leido')
-    this.arrReading = await this.arrIndex.filter(comic => comic.estado == 'leyendo')
+    this.arrRead = await this.arrIndex.filter(comic => comic.estado == 'leido');
+    this.arrReading = await this.arrIndex.filter(comic => comic.estado == 'leyendo');
+
   }
 
+
+
+
   async onDelete($event) {
-    console.log($event.target.value);
 
     const email = localStorage.getItem('userEmail');
     this.arrUser = await this.usersService.getUserByEmail(email);
     const idUser = this.arrUser.id;
     const idComic = $event.target.value;
     this.arrIndex = await this.comicsService.deleteByFks(idUser, idComic);
-    console.log(this.arrIndex.lenght);
 
     window.location.reload();
+
+  }
+
+
+  async fotoPerfil() {
+    const foto = await this.usersService.getUserByEmail(localStorage.getItem('userEmail'));
+
+    if (foto !== null) { return this.perfil }
+    else { return foto.foto };
 
   }
 
