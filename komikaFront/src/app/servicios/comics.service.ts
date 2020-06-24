@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Indice } from '../models/indices.model'
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -88,6 +89,25 @@ export class ComicsService {
       resolve(this.httpClient.get(urlIndx).toPromise())
     })
   }
+
+
+  createByFks(pUsuario, pComic): Promise<Indice> {
+    return new Promise<any>((resolve, reject) => {
+      const urlPost = this.indiceUrl + '/tbi/' + pUsuario + '/' + pComic;
+      resolve(this.httpClient.post(urlPost, {}).toPromise())
+    })
+  }
+
+  deleteByFks(pUsuario, pComic): Promise<Indice> {
+    return new Promise<any>((resolve, reject) => {
+      const urlDelete = this.indiceUrl + '/delete/' + pUsuario + '/' + pComic;
+      resolve(this.httpClient.delete(urlDelete, {}).toPromise())
+    })
+  }
+
+
+
+
 
   createComic(pValues): Promise<any> {
     return new Promise((resolve, reject) => {

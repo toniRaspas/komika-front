@@ -6,8 +6,9 @@
     </div>
     <h2>Tus lecturas</h2>
 
-
-    <div *ngFor="let comic of arrIndex">
+    <h3>Leyendo</h3>
+    <div *ngIf="arrReading.length == 0">Lee Burro</div>
+    <div *ngFor="let comic of arrReading">
 
         <h4>{{comic.titulo}}</h4>
         <h4>{{comic.autor}}</h4>
@@ -18,7 +19,27 @@
         <label>Puntuación:</label>
         <p>{{comic.puntuacion}}</p>
         <button [routerLink]="['/galeria/view', comic.id]">LEER</button>
-        <!--quiero sacar una query que a partir de fk_usuario y fk_comic me de la-->
+        <button [value]="comic.id" (click)="onDelete($event)">Borrar</button>
+
+
 
     </div>
+    <h3>Leidos</h3>
+    <div *ngIf="arrRead.length == 0">Lee Burro</div>
+
+    <div *ngFor="let comic of arrRead">
+
+        <h4>{{comic.titulo}}</h4>
+        <h4>{{comic.autor}}</h4>
+        <img [src]="comic.linkFoto">
+        <p>{{comic.descripcion}}
+        </p>
+        <label>Estado: {{comic.estado}}</label>
+        <label>Puntuación:</label>
+        <p>{{comic.puntuacion}}</p>
+        <button [routerLink]="['/galeria/view', comic.id]">LEER</button>
+        <button [value]="comic.id" (click)="onDelete($event)">Borrar</button>
+
+    </div>
+
 </div>

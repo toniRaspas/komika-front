@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ComicsService } from '../servicios/comics.service';
 import { Comic } from '../models/comics.model';
 import { ActivatedRoute } from '@angular/router';
+import { UsuariosService } from '../servicios/usuarios.service';
+import { Usuario } from '../models/usuarios.model';
 
 
 
@@ -17,6 +19,9 @@ export class VisualizadorComponent implements OnInit {
   url: string;
 
   constructor(private activateRoute: ActivatedRoute, private comicsService: ComicsService) {
+
+
+  constructor(private activateRoute: ActivatedRoute, private comicsService: ComicsService, private usersService: UsuariosService) {
 
     this.id;
     this.url;
@@ -41,11 +46,26 @@ export class VisualizadorComponent implements OnInit {
 
   }
 
+      })
 
+    })
 
 
 
 }
+
+
+
+/*
+   const email = localStorage.getItem('userEmail');
+    this.arrUser = await this.usersService.getUserByEmail(email);
+    console.log(this.arrUser);
+    const id = this.arrUser.id;
+*/
+
+
+
+
 
 
 
