@@ -4,6 +4,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { HttpClientModule } from '@angular/common/http';
+import { AccordionModule } from 'ngx-bootstrap/accordion';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { environment } from '../environments/environment';
 
@@ -53,7 +55,10 @@ firebase.initializeApp(environment.firebaseConfig);
     ReactiveFormsModule,
     NgxExtendedPdfViewerModule,
     HttpClientModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+
+    BrowserAnimationsModule,
+    AccordionModule.forRoot()
 
   ],
   providers: [

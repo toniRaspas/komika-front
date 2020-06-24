@@ -56,6 +56,13 @@ export class ComicsService {
     });
   };
 
+  getByDescription(pId): Promise<any> {
+    return new Promise<any>((resolve, reject) => {
+      resolve(this.httpClient.get(this.baseUrl + '/descripcion/' + pId).toPromise());
+    });
+  }
+
+
   deleteComic(pId): Promise<any> {
     return new Promise((resolve, reject) => {
       resolve(this.httpClient.delete(this.baseUrl + '/' + pId).toPromise());
