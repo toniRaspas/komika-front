@@ -15,8 +15,9 @@ export class Comic {
     nombreArchivo: string;
     linkFoto: string;
     archivo: string;
+    archivoLocal: string;
 
-    constructor(id: number, titulo: string = '', autor: string = '', dibujante: string = '', ano: number, genero: string = '', escuela: string = '', editorial: string = '', descripcion: string = '', nombreArchivo: string = '', linkFoto: string = '', archivo: string) {
+    constructor(id: number, titulo: string = '', autor: string = '', dibujante: string = '', ano: number, genero: string = '', escuela: string = '', editorial: string = '', descripcion: string = '', nombreArchivo: string = '', linkFoto: string = '', archivo: string, archivoLocal: string = '') {
 
         this.id = id;
         this.titulo = titulo;
@@ -30,6 +31,7 @@ export class Comic {
         this.nombreArchivo = nombreArchivo;
         this.linkFoto = linkFoto;
         this.archivo = archivo;
+        this.archivoLocal = archivoLocal;
     }
 
 }

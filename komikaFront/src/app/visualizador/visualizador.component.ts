@@ -12,20 +12,35 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class VisualizadorComponent implements OnInit {
   id: string;
-  arrComics: Comic[];
+  linkArchivo: Comic[];
+  arrDescripcion: Comic[];
+  url: string;
+
   constructor(private activateRoute: ActivatedRoute, private comicsService: ComicsService) {
 
     this.id;
+    this.url;
   }
-  ngOnInit(): void {
+  async ngOnInit() {
+
+
+
     this.activateRoute.params.subscribe((params) => {
       const idesVarios = params.idComic;
       this.id = idesVarios;
     });
+
+    this.arrDescripcion = await this.comicsService.getByDescription(this.id);
+
+
     this.comicsService.viewById(this.id).then(arrViewId => {
-    this.arrComics = arrViewId;
+      this.linkArchivo = arrViewId;
+      console.log(this.linkArchivo);
+
     });
+
   }
+
 
 
 

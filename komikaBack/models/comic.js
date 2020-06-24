@@ -64,9 +64,9 @@ const deleteById = (pId) => {
     });
 };
 
-const updateById = (pId, { titulo, autor, dibujante, ano, genero, escuela, editorial, descripcion, nombreArchivo, linkFoto, archivo, fk_autor }) => {
+const updateById = (pId, { titulo, autor, dibujante, ano, genero, escuela, editorial, descripcion, nombreArchivo, linkFoto, archivo, archivoLocal, fk_autor }) => {
     return new Promise((resolve, reject) => {
-        db.query('update comics set titulo=?, autor=?, dibujante=?, ano=?, genero=?, escuela=?, editorial=?, descripcion=?, nombreArchivo=?, linkFoto=?, archivo=?, fk_autor=? where id=?', [titulo, autor, dibujante, ano, genero, escuela, editorial, descripcion, nombreArchivo, linkFoto, archivo, fk_autor, pId], (err, result) => {
+        db.query('update comics set titulo=?, autor=?, dibujante=?, ano=?, genero=?, escuela=?, editorial=?, descripcion=?, nombreArchivo=?, linkFoto=?, archivo=?, archivoLocal=?, fk_autor=? where id=?', [titulo, autor, dibujante, ano, genero, escuela, editorial, descripcion, nombreArchivo, linkFoto, archivo, archivoLocal, fk_autor, pId], (err, result) => {
             if (err) reject(err);
             resolve(result);
         });
@@ -77,16 +77,26 @@ const updateById = (pId, { titulo, autor, dibujante, ano, genero, escuela, edito
 const getByIdViewer = (pId) => {
     return new Promise((resolve, reject) => {
 
-        db.query('SELECT comics.archivo FROM comics WHERE comics.id = ?', [pId], (err, rows) => {
+        db.query('SELECT comics.archivoLocal FROM comics WHERE comics.id = ?', [pId], (err, rows) => {
             if (err) reject(err);
             resolve(rows);
         });
     });
 };
 
-const createComic = ({ titulo, autor, dibujante, ano, genero, escuela, editorial, descripcion, nombreArchivo, linkFoto, archivo, fk_autor }) => {
+const getByIdDescription = (pId) => {
     return new Promise((resolve, reject) => {
-        db.query('insert into comics (titulo, autor, dibujante,ano, genero, escuela, editorial, descripcion, nombreArchivo, linkFoto, archivo, fk_autor) values (?,?,?,?,?,?,?,?,?,?,?,?)', [titulo, autor, dibujante, ano, genero, escuela, editorial, descripcion, nombreArchivo, linkFoto, archivo, fk_autor], (err, results) => {
+
+        db.query('SELECT comics.descripcion FROM comics WHERE comics.id = ?', [pId], (err, rows) => {
+            if (err) reject(err);
+            resolve(rows);
+        });
+    });
+};
+
+const createComic = ({ titulo, autor, dibujante, ano, genero, escuela, editorial, descripcion, nombreArchivo, linkFoto, archivo, archivoLocal, fk_autor }) => {
+    return new Promise((resolve, reject) => {
+        db.query('insert into comics (titulo, autor, dibujante,ano, genero, escuela, editorial, descripcion, nombreArchivo, linkFoto, archivo, archivoLocal, fk_autor) values (?,?,?,?,?,?,?,?,?,?,?,?,?)', [titulo, autor, dibujante, ano, genero, escuela, editorial, descripcion, nombreArchivo, linkFoto, archivo, archivoLocal, fk_autor], (err, results) => {
             if (err) reject(err);
             resolve(results);
         });
@@ -106,5 +116,6 @@ module.exports = {
     deleteById,
     getById,
     getByIdViewer,
-    createComic
+    createComic,
+    getByIdDescription
 }
