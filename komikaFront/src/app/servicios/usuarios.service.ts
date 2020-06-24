@@ -50,9 +50,13 @@ export class UsuariosService {
     console.log(email);
     return email;
   };
+
+
   deleteEmail() {
     localStorage.removeItem('userEmail');
   };
+
+
   getUserByEmail(pEmail) {
     return new Promise<any>((resolve, reject) => {
       const newUrl = this.baseUrl + 'login/' + pEmail;
@@ -61,6 +65,9 @@ export class UsuariosService {
       resolve(this.httpClient.get(newUrl).toPromise())
     })
   }
+  ///////////////////////////////
+
+
 
 
 
