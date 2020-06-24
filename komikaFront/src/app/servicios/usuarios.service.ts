@@ -54,7 +54,6 @@ export class UsuariosService {
   getUserByEmail(pEmail) {
     return new Promise<any>((resolve, reject) => {
       const newUrl = this.baseUrl + 'login/' + pEmail;
-      console.log(newUrl);
 
       resolve(this.httpClient.get(newUrl).toPromise())
     })

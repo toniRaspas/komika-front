@@ -1,21 +1,34 @@
-<header class="container-fluid col-12 text-center d-flex align-items-center">
-    <div class="container cabecera">
-        <nav class="">
-            <ul class="d-flex justify-content-between ">
-                <li><a href="http://localhost:4200/perfil">Perfil</a></li>
-                <li><a href="http://localhost:4200/galeria">Galería</a></li>
-                <li><a href=""> <i class="fas fa-power-off" (click)="logOut()"></i></a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
+<div id="container">
+
+    <header class="container-fluid col-12 text-center d-flex align-items-center" *ngIf="!mostrarCabecera">
+        <div class="container cabecera">
+            <nav class="">
+                <ul class="d-flex justify-content-between ">
+                    <li><a href="http://localhost:4200/perfil">Perfil</a></li>
+                    <li><a href="http://localhost:4200/galeria">Galería</a></li>
+                    <li><a href=""> <i class="fas fa-power-off" (click)="logOut()"></i></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
 
+    <main id="body">
+        <router-outlet #outlet="outlet"></router-outlet>
+    </main>
 
-<router-outlet></router-outlet>
 
-<footer class="container-fluid">
-    <div class="container d-flex justify-content-between">
-        <p>Copyright &copy; 2020 - <a href="#">Aviso Legal</a> - <a href="#">Cookies</a></p>
-    </div>
-</footer>
+    <footer class="container-fluid">
+        <div class="container d-flex justify-content-between">
+            <div>
+                <p>Copyright &copy; 2020 - <a href="#">Aviso Legal</a> - <a href="#">Cookies</a></p>
+            </div>
+            <div class="d-flex flex-column">
+                <span>boketto.producciones@gmail.com</span>
+                <span>alwaromoreno@gmail.com</span>
+            </div>
+        </div>
+    </footer>
+
+
+</div>

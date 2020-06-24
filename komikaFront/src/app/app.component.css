@@ -1,6 +1,18 @@
+#container {
+    min-height:100%;
+   position:relative;
+}
+
+#body {
+    padding:10px;
+    padding-bottom:60px;   /* Height of the footer */
+ }
+
+
 header {
     background-image: linear-gradient(to right,var(--color-fuente) , crimson);
     height: 60px;
+    padding: 10px;
 }
 
 
@@ -17,15 +29,18 @@ ul {
 }
 
 
-
-
-
 footer {
     margin-top: 30px;
-    height: 50px;
+    /* height: 50px; */
     background-image: linear-gradient(to right,var(--color-fuente) , crimson);
     font-family: var(--fuente-secundaria);
     font-weight: bold;
     padding: 1.825em 0;
     text-align: center;
+
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:auto;
+
 }

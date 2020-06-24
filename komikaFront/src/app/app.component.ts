@@ -1,22 +1,25 @@
 import { Component } from '@angular/core';
 import { UsuariosService } from './servicios/usuarios.service';
-import { Router } from '@angular/router';
+import { RouterOutlet, Router } from '@angular/router';
+
 import { } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
 
   title = 'Komika';
   arrRutas: any[];
   baseUrl: string;
+  mostrarCabecera: boolean;
+
 
   constructor(
     private usuariosService: UsuariosService,
-    private router: Router
+    private router: Router,
   ) {
     this.baseUrl = "http://localhost:4200/"
     this.arrRutas = ['/home', '/registro'];
@@ -24,14 +27,8 @@ export class AppComponent {
 
 
   ngOnInit() {
-    this.checkRoute();
-
-  };
-
-
-  checkRoute() {
-    this.router.events.subscribe((val) => {
-      this.arrRutas.find(element => element === val);
+    this.router.events.subscribe(() => {
+      this.mostrarCabecera = this.arrRutas.includes(this.router.url);
     });
   };
 
