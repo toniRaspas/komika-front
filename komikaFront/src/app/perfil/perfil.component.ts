@@ -41,6 +41,9 @@ export class PerfilComponent implements OnInit {
 
     const email = localStorage.getItem('userEmail');
     this.arrUser = await this.usersService.getUserByEmail(email);
+
+    if (this.arrUser.foto === null) { this.arrUser.foto === this.perfil };
+
     const id = this.arrUser.id;
     this.arrIndex = await this.comicsService.indexByUser(id);
     this.arrRead = await this.arrIndex.filter(comic => comic.estado == 'leido');
@@ -63,14 +66,6 @@ export class PerfilComponent implements OnInit {
 
   }
 
-
-  async fotoPerfil() {
-    const foto = await this.usersService.getUserByEmail(localStorage.getItem('userEmail'));
-
-    if (foto !== null) { return this.perfil }
-    else { return foto.foto };
-
-  }
 
 
 
