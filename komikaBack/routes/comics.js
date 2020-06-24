@@ -67,6 +67,16 @@ router.get('/pdf/:id', async (req, res) => {
     } catch (err) {
         res.send(err);
     }
+});
+
+// GET BY DESCRIPTION
+router.get('/descripcion/:id', async (req, res) => {
+    try {
+        const viewer = await Comic.getByIdDescription(req.params.id);
+        res.json(viewer);
+    } catch (err) {
+        res.send(err);
+    }
 })
 
 

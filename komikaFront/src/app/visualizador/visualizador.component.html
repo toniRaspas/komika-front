@@ -1,17 +1,17 @@
-<div class="d-flex flex-row">
+<accordion class="acordeon" [isAnimated]="true">
+    <accordion-group heading="Sinopsis" *ngFor="let comic of arrDescripcion" class="col-12">
+        {{comic.descripcion}}
+    </accordion-group>
+</accordion>
 
-    <div class="col-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor fuga architecto explicabo quidem!
-        Temporibus minima inventore, dicta praesentium dolore maiores? Corporis distinctio nobis voluptates, atque
-        adipisci
-        asperiores vero nemo officia?</div>
-
-    <ngx-extended-pdf-viewer *ngFor="let comic of arrComics" class="col-11" [src]="comic.archivo"
-        useBrowserLocale=" true" [showDownloadButton]="false" [showOpenFileButton]="false" [showPrintButton]="false"
-        [zoom]="'page-fit'" [spread]="'odd'" delayFirstView=1000 height="90vh" (pageChange)="savePage($event)"
-        [page]="pagina.pagina">
-    </ngx-extended-pdf-viewer>
-</div>
+<ngx-extended-pdf-viewer *ngFor="let comic of linkArchivo" class="col-12" [src]="comic.archivoLocal"
+    useBrowserLocale=" true" [showDownloadButton]="false" [showOpenFileButton]="false" [showPrintButton]="false"
+    [zoom]="'page-fit'" [spread]="'odd'" delayFirstView=1000 height="90vh" [showPresentationModeButton]="true"
+    (pageChange)="savePage($event)" [page]="pagina.pagina">
+</ngx-extended-pdf-viewer>
 <div style="height: 100px;"></div>
+
+
 
 
 <!-- [src]=pdfSrc-->

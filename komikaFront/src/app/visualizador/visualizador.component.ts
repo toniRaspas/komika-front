@@ -1,4 +1,4 @@
-import { Component, OnInit, ɵɵresolveBody } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ComicsService } from '../servicios/comics.service';
 import { Comic } from '../models/comics.model';
 import { ActivatedRoute } from '@angular/router';
@@ -18,6 +18,12 @@ export class VisualizadorComponent implements OnInit {
   arrUser: Usuario;
   arrIndex: any;
   pagina: any;
+  linkArchivo: Comic[];
+  arrDescripcion: Comic[];
+  url: string;
+
+
+
 
   constructor(private activateRoute: ActivatedRoute, private comicsService: ComicsService, private usersService: UsuariosService) {
 
@@ -25,8 +31,10 @@ export class VisualizadorComponent implements OnInit {
     this.arrIndex = [];
     this.pagina = [];
     //this.idUser
+    this.url;
   }
-  ngOnInit(): void {
+  async ngOnInit() {
+
 
     this.activateRoute.params.subscribe((params) => {
       const idesVarios = params.idComic;
@@ -53,8 +61,15 @@ export class VisualizadorComponent implements OnInit {
       })
 
 
-
     })
+    this.arrDescripcion = await this.comicsService.getByDescription(this.id);
+
+
+    this.comicsService.viewById(this.id).then(arrViewId => {
+      this.linkArchivo = arrViewId;
+      console.log(this.linkArchivo);
+
+    });
 
 
 
@@ -87,13 +102,10 @@ export class VisualizadorComponent implements OnInit {
 
 
 
-
-
-
-
-
-
   }
+
+
+
 
 }
 
