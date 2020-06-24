@@ -98,6 +98,20 @@ export class ComicsService {
     })
   }
 
+  updatePag(pUsuario, pComic, pPage): Promise<Indice> {
+    return new Promise<any>((resolve, reject) => {
+      const urlPag = this.indiceUrl + '/page/' + pUsuario + '/' + pComic + '/' + pPage;
+      resolve(this.httpClient.put(urlPag, {}).toPromise())
+    })
+  }
+
+  getPag(pUsuario, pComic): Promise<Indice> {
+    return new Promise<any>((resolve, reject) => {
+      const urlAcc = this.indiceUrl + '/getpage/' + pUsuario + '/' + pComic;
+      resolve(this.httpClient.get(urlAcc).toPromise())
+    })
+  }
+
 
 
 

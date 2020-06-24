@@ -7,7 +7,8 @@
 
     <ngx-extended-pdf-viewer *ngFor="let comic of arrComics" class="col-11" [src]="comic.archivo"
         useBrowserLocale=" true" [showDownloadButton]="false" [showOpenFileButton]="false" [showPrintButton]="false"
-        [zoom]="'page-fit'" [spread]="'odd'" delayFirstView=1000 height="90vh">
+        [zoom]="'page-fit'" [spread]="'odd'" delayFirstView=1000 height="90vh" (pageChange)="savePage($event)"
+        [page]="pagina.pagina">
     </ngx-extended-pdf-viewer>
 </div>
 <div style="height: 100px;"></div>

@@ -26,20 +26,21 @@ const deleteIndex = (fk_usuario, fk_comic) => {
     })
 
 }
-
-const updatePage = ({ fk_usuario, fk_comic }, pagina) => {
+//tener cuidado con el puto parentesis al final de la query por dios
+const updatePage = (fk_usuario, fk_comic, pagina) => {
     return new Promise((resolve, reject) => {
-        db.query('update tbi_usuarios_comics set pagina=? where fk_usuario=? and fk_comic=?'), [pagina, fk_usuario, fk_comic], (err, result) => {
+        db.query('update tbi_usuarios_comics set pagina=? where fk_usuario=? and fk_comic=?', [pagina, fk_usuario, fk_comic], (err, result) => {
             if (err) reject(err);
             resolve(result);
-        }
+        })
     })
 }
-/*
-const progress = (idIndex) => {
+
+const getPagFks = (fk_usuario, fk_comic) => {
     return new Promise((resolve, reject) => {
-        db.query('update tbi_usuarios_comics where pagina = ?', [page], (err, result) => { if (err) reject(err); resolve(result) })
+        db.query('select pagina from tbi_usuarios_comics where fk_usuario=? and fk_comic=?', [fk_usuario, fk_comic], (err, rows) => { if (err) reject(err); resolve(rows) })
     })
+
 }
-*/
-module.exports = { getIndexUserId, createInIndex, deleteIndex, updatePage }
+
+module.exports = { getIndexUserId, createInIndex, deleteIndex, updatePage, getPagFks }

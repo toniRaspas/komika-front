@@ -41,12 +41,23 @@ router.delete('/delete/:usuario/:comic', async (req, res) => {
 })
 
 router.put('/page/:fk_usuario/:fk_comic/:pagina', async (req, res) => {
-  const result = await Indice.updatePage(req.body.fk_usuario, req.body.fk_comic, req.params.pagina);
+  const result = await Indice.updatePage(req.params.fk_usuario, req.params.fk_comic, req.params.pagina);
   console.log(req.params.pagina);
   if (result['affectedRows'] === 1) {
     res.json({ success: 'Página actualizada' });
   } else {
     res.json({ error: 'No se puede actualizar' })
+  }
+
+})
+
+router.get('/getpage/:fk_usuario/:fk_comic', async (req, res) => {
+  const paginas = await Indice.getPagFks(req.params.fk_usuario, req.params.fk_comic);
+  try {
+    res.json(paginas[0]);
+  }
+  catch (err) {
+    res.send(err)
   }
 
 })
