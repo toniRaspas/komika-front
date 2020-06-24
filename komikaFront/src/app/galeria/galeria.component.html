@@ -1,18 +1,21 @@
 <div class="container">
 
     <div class="row">
-        <div class="m-3 d-flex justify-content-end">
-            <!--tengo que aplicar los filtros    ////onBoth(cat, words)-->
-            <select class="form-control m-1" name="categoria" (change)="onChange($event)" [(ngModel)]="cat">
-                <option value="" selected="true">Todo</option>
-                <option value="aventuras">Aventuras</option>
-                <option value="comico">Cómico</option>
-                <option value="negro">Negro</option>
-                <option value="novela grafica">Novela Gráfica</option>
-                <option value="terror">Terror</option>
-            </select>
-            <input type="text" placeholder="Buscador..." class="form-control m-1" [(ngModel)]="words">
-            <button class="btn btn-outline-danger m-1" (click)="onBoth(cat, words)">BUSCAR</button>
+
+        <div class="row d-flex">
+            <div class="m-3 d-flex justify-content-end">
+                <select class="selectpicker m-1" name="categoria" (change)="onChange($event)" [(ngModel)]="cat">
+                    <option value="" selected>Todo</option>
+                    <option value="aventuras">Aventuras</option>
+                    <option value="comico">Cómico</option>
+                    <option value="negro">Negro</option>
+                    <option value="novela grafica">Novela Gráfica</option>
+                    <option value="terror">Terror</option>
+                </select>
+
+                <input type="text" placeholder="Buscador..." class="form-control m-1" [(ngModel)]="words">
+                <button class="btn btn-outline-danger m-1" (click)="onBoth(cat, words)">BUSCAR</button>
+            </div>
         </div>
 
 

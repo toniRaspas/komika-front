@@ -28,7 +28,6 @@ export class GaleriaComponent implements OnInit {
   }
 
   onChange($event) {
-    console.log($event.target.value);
 
     if ($event.target.value != '') {
       this.comicsService.getByCat($event.target.value)
@@ -42,8 +41,6 @@ export class GaleriaComponent implements OnInit {
     if ($event.target.value != '') {
       this.comicsService.getByWords($event.target.value)
         .then(arrComicsCat => { this.arrComics = arrComicsCat; })
-      console.log(this.arrComics);
-
     } else { this.comicsService.getAll().then(arrComicsReturn => { this.arrComics = arrComicsReturn }) }
   }
 
@@ -72,7 +69,6 @@ export class GaleriaComponent implements OnInit {
   }
 
   viewerComic(comic) {
-    console.log(comic);
     this.comicsService.viewById(comic)
       .then(arrViewId => {
         this.arrComics = arrViewId;
