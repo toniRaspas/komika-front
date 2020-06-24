@@ -33,7 +33,6 @@ export class UsuariosService {
 
   retrieveLocalToken() {
     var token = localStorage.getItem('userToken');
-    console.log(token);
     return token;
   };
   deleteToken() {
@@ -47,7 +46,6 @@ export class UsuariosService {
 
   retrieveLocalEmail() {
     var email = localStorage.getItem('userEmail');
-    console.log(email);
     return email;
   };
 

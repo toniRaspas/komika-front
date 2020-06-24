@@ -37,9 +37,7 @@ export class PerfilComponent implements OnInit {
   async ngOnInit() {
     const email = localStorage.getItem('userEmail');
     this.arrUser = await this.usersService.getUserByEmail(email);
-    console.log(this.arrUser);
     const id = this.arrUser.id;
-
     this.arrIndex = await this.comicsService.indexByUser(id);
     console.log(this.arrIndex)
     console.log(this.arrIndex.lenght);
@@ -68,7 +66,6 @@ export class PerfilComponent implements OnInit {
     window.location.reload();
 
   }
-
 
 
 

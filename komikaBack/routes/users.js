@@ -35,7 +35,7 @@ router.post('/login', async (req, res) => {
   if (usuario) {
     const password = bcrypt.compareSync(req.body.password, usuario.password);
     if (password) {
-      res.json({ success: 'Login Correcto', token: createToken(usuario.id), email: usuario.email, rol: usuario.rol })
+      res.json({ success: 'Login Correcto', token: createToken(usuario.id, usuario.rol), email: usuario.email, rol: usuario.rol })
     } else {
       res.json({ error: 'El email y/o la contraseña no son correctos' })
     }
@@ -60,11 +60,12 @@ router.get('/login/:pEmail', async (req, res) => {
 
 
 // Token
-function createToken(pUsuarioId) {
+function createToken(pUsuarioId, pRol) {
   payload = {
     idUsuario: pUsuarioId,
-    curr: Math.floor(Date.now()),
-    exp: Math.floor(Date.now() / 2000) + (60 * 60)
+    createdAt: Math.floor(Date.now()),
+    expiredAt: Math.floor(Date.now() / 2000) + (60 * 60),
+    rol: pRol
   }
   return jwt.sign(payload, process.env.SECRET_KEY);
 }

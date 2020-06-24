@@ -1,10 +1,12 @@
-<header class="container-fluid col-12 text-center">
-    <div class="container">
-        <button [routerLink]="['/home']">home</button>
-        <button [routerLink]="['/perfil']">perfil</button>
-        <button [routerLink]="['/galeria']">galeria</button>
-        <!--<button [routerLink]="['/galeria/view']">View</button>-->
-        <button [routerLink]="['/registro']">Registro</button>
+<header class="container-fluid col-12 text-center d-flex align-items-center">
+    <div class="container cabecera">
+        <nav class="">
+            <ul class="d-flex justify-content-between ">
+                <li><a href="http://localhost:4200/perfil">Perfil</a></li>
+                <li><a href="http://localhost:4200/galeria">Galería</a></li>
+                <li><a href=""> <i class="fas fa-power-off" (click)="logOut()"></i></a></li>
+            </ul>
+        </nav>
     </div>
 </header>
 
@@ -13,7 +15,7 @@
 <router-outlet></router-outlet>
 
 <footer class="container-fluid">
-    <div class="container">
-        <p>Copyright</p>
+    <div class="container d-flex justify-content-between">
+        <p>Copyright &copy; 2020 - <a href="#">Aviso Legal</a> - <a href="#">Cookies</a></p>
     </div>
 </footer>
