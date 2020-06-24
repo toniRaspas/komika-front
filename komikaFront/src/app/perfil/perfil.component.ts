@@ -39,18 +39,8 @@ export class PerfilComponent implements OnInit {
     this.arrUser = await this.usersService.getUserByEmail(email);
     const id = this.arrUser.id;
     this.arrIndex = await this.comicsService.indexByUser(id);
-    console.log(this.arrIndex)
-    console.log(this.arrIndex.lenght);
     this.arrRead = await this.arrIndex.filter(comic => comic.estado == 'leido')
-    console.log(this.arrRead);
     this.arrReading = await this.arrIndex.filter(comic => comic.estado == 'leyendo')
-
-
-
-    // this.arrComics = await this.comicsService.getComicById(this.arrIndex.fk_comic);
-    //console.log(this.arrComics);
-
-    //this.arrComics = await this.comicsService.getComicById(caca);
   }
 
   async onDelete($event) {

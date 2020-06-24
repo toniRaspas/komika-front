@@ -25,8 +25,6 @@ export class VisualizadorComponent implements OnInit {
 
 
 
-  constructor(private activateRoute: ActivatedRoute, private comicsService: ComicsService, private usersService: UsuariosService) {
-
     this.id;
     this.arrIndex = [];
     this.pagina = [];
@@ -71,6 +69,7 @@ export class VisualizadorComponent implements OnInit {
 
     });
 
+<<<<<<< Updated upstream
 
 
   }
@@ -82,6 +81,10 @@ export class VisualizadorComponent implements OnInit {
       const idesVarios = params.idComic;
       this.id = idesVarios;
     });
+=======
+  };
+
+>>>>>>> Stashed changes
 
     ///////////////////////////////////////////////
     const email = localStorage.getItem('userEmail');
@@ -102,6 +105,7 @@ export class VisualizadorComponent implements OnInit {
 
 
 
+<<<<<<< Updated upstream
   }
 
 
@@ -119,6 +123,8 @@ export class VisualizadorComponent implements OnInit {
 */
 
 
+=======
+>>>>>>> Stashed changes
 
 
 
