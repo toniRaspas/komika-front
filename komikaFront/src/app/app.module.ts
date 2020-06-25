@@ -31,6 +31,7 @@ import { EditarAutoresComponent } from './administracion/editar-autores/editar-a
 import { CrearComicComponent } from './administracion/crear-comic/crear-comic.component';
 
 import * as firebase from 'firebase';
+import { EditarPerfilComponent } from './editar-perfil/editar-perfil.component';
 firebase.initializeApp(environment.firebaseConfig);
 
 @NgModule({
@@ -46,7 +47,8 @@ firebase.initializeApp(environment.firebaseConfig);
     AdminGeneralComponent,
     AutoresComponent,
     EditarAutoresComponent,
-    CrearComicComponent
+    CrearComicComponent,
+    EditarPerfilComponent
 
   ],
   imports: [

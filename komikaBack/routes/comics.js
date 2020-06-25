@@ -15,6 +15,7 @@ router.get('/', (req, res) => {
 router.get('/:comicId', async (req, res) => {
     try {
         const comic = await Comic.getById(req.params.comicId);
+        console.log(req.params);
         res.json(comic);
     } catch (err) {
         res.send(err);

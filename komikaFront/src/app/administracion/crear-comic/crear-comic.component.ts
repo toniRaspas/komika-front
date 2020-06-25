@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireDatabase } from 'angularfire2/database';
 
 import * as firebase from 'firebase';
 
@@ -63,17 +62,9 @@ export class CrearComicComponent implements OnInit {
       xhr.open('GET', pUrl);
       this.url = pUrl;
 
-      console.log(this.url);
-
-
-
     }).catch((err) => {
       console.log(err);
     });
-
-
-    console.log(this.url);
-
   };
 
 

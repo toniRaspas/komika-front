@@ -19,7 +19,6 @@ Content-Type: application/json
 }
 
 ###
-
 POST http://localhost:3000/users/login
 Content-Type: application/json
 
@@ -29,7 +28,6 @@ Content-Type: application/json
 }
 
 ###
-
 GET http://localhost:3000/users/login/boketto.producciones@gmail.com
 
 
@@ -40,6 +38,24 @@ DELETE http://localhost:3000/comics/10
 
 ###
 GET http://localhost:3000/users/anitaheart
+
+###
+GET http://localhost:3000/users/user/62
+Content-Type: application/json
+
+
+
+###
+PUT http://localhost:3000/users/edit/70
+Content-Type: application/json
+
+{
+    "nombre": "Perica",
+    "usuario": "Palotes",
+    "email":"pericapalotes@gmail.com",
+    "foto":""
+}
+
 
 ###
 PUT http://localhost:3000/comics/edit/31
@@ -81,7 +97,6 @@ Content-Type: application/json
 }
 
 ###
-
 GET  http://localhost:3000/indices/63
 
 ###

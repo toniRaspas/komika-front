@@ -3,6 +3,33 @@
 }
 
 
+h3 {
+    margin-left: 18px;
+}
+
+.perfil {
+    text-align: center;
+}
+.usuario {
+    margin-left: 0;
+}
+
+.burro {
+    text-align: center;
+    font-weight: bold;
+}
+
+.acordeon .etiquetas {
+    font-weight: bold;
+}
+
+
+.foto {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: block;
+}
 img {
     height: auto;
     max-width: 200px;

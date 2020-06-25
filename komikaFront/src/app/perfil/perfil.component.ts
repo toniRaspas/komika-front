@@ -16,23 +16,20 @@ import { ComicsService } from '../servicios/comics.service';
 })
 export class PerfilComponent implements OnInit {
 
-  itemsPerSlide = 3;
-  singleSlideOffset = true;
 
   arrUser: Usuario;
   arrComics: Comic[];
   arrIndex: any;
   arrRead: any;
   arrReading: any;
-  perfil: string;
-
+  foto: string;
 
   constructor(private usersService: UsuariosService, private comicsService: ComicsService) {
 
     this.arrIndex = [];
     this.arrRead = [];
     this.arrReading = [];
-    this.perfil = '../../assets/images/profile.png'
+
 
   }
 
@@ -42,12 +39,16 @@ export class PerfilComponent implements OnInit {
     const email = localStorage.getItem('userEmail');
     this.arrUser = await this.usersService.getUserByEmail(email);
 
-    if (this.arrUser.foto === null) { this.arrUser.foto === this.perfil };
+    if (this.arrUser.foto === null || this.arrUser.foto === '') { this.foto = '../../assets/images/profile.png'; }
+    else { this.foto = this.arrUser.foto; }
+    console.log(this.arrUser);
 
     const id = this.arrUser.id;
     this.arrIndex = await this.comicsService.indexByUser(id);
     this.arrRead = await this.arrIndex.filter(comic => comic.estado == 'leido');
     this.arrReading = await this.arrIndex.filter(comic => comic.estado == 'leyendo');
+
+
 
   }
 

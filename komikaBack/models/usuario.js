@@ -29,17 +29,28 @@ const getByUser = (pUsuario) => {
     });
 };
 
-const getByUserId = (pUsuarioId) => {
+const getById = (pId) => {
     return new Promise((resolve, reject) => {
-        db.query('select * from usuarios where id=?', [pUsuarioId], (err, rows) => {
+        db.query('select * from usuarios where id = ?', [pId], (err, result) => {
             if (err) reject(err);
-            resolve(rows);
+            resolve(result);
         });
     });
 };
+
+
+const editUserId = (pId, { nombre, usuario, email, foto }) => {
+    return new Promise((resolve, reject) => {
+        db.query('update usuarios set nombre=?, usuario=?, email=?, foto=? where id=?', [nombre, usuario, email, foto, pId], (err, result) => {
+            if (err) reject(err);
+            resolve(result);
+        });
+    });
+};
+
 ///////////////////////////Alvaro esto he decidido ponerlo finalmente aqui poruqe, realmente estamos trabajando con la info de usuario
 
 
 module.exports = {
-    create, getByEmail, getByUser, getByUserId
+    create, getByEmail, getByUser, getById, editUserId
 }

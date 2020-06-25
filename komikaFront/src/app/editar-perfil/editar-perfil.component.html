@@ -1,0 +1,38 @@
+<div class="container">
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+
+        <div class=" form-group">
+            <label for="nombre">Nombre: </label>
+            <input type="text" class="form-control" id="nombre" name="nombre" formControlName="nombre">
+        </div>
+
+        <div class="form-group">
+            <label for="usuario">Usuario: </label>
+            <input type="text" class="form-control" id="usuario" name="usuario" formControlName="usuario">
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:
+            </label>
+            <input type="text" id="email" name="email" class="form-control" formControlName="email">
+        </div>
+
+        <div class="col foto">
+            <label for="foto">Foto:
+                <input type="text" id="foto" name="foto" class="form-control" formControlName="foto" [value]="url"
+                    readonly>
+            </label>
+        </div>
+
+        <div class="col subir">
+            <label for="">Subir Archivo:
+                <input type="file" id="archivo2" name="archivo2" class="form-control-file"
+                    (change)="uploadFile($event)">
+            </label>
+        </div>
+
+
+        <button class="btn btn-success" type="submit">Enviar</button>
+    </form>
+    <br><br><br><br>
+</div>

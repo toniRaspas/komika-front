@@ -12,7 +12,6 @@ const getById = (pId) => {
     return new Promise((resolve, reject) => {
         db.query('select * from comics where id = ?', [pId], (err, result) => {
             if (err) reject(err);
-            console.log(resolve(result));
             resolve(result);
         });
     });
