@@ -119,9 +119,19 @@ export class ComicsService {
     })
   }
 
+  updateStatus(id, estado): Promise<Indice> {
+    return new Promise<any>((resolve, reject) => {
+      const urlStatus = this.indiceUrl + '/updatestatus/' + id + '/' + estado;
+      resolve(this.httpClient.put(urlStatus, {}).toPromise())
+    })
+  }
 
-
-
+  updatePoints(userId, comicId, puntuacion): Promise<Indice> {
+    return new Promise<any>((resolve, reject) => {
+      const urlStatus = this.indiceUrl + '/yourpoint/' + userId + '/' + comicId + '/' + puntuacion;
+      resolve(this.httpClient.put(urlStatus, {}).toPromise())
+    })
+  }
 
   createComic(pValues): Promise<any> {
     return new Promise((resolve, reject) => {

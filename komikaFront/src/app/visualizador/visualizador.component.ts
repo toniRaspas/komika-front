@@ -13,7 +13,6 @@ import { Usuario } from '../models/usuarios.model';
 })
 export class VisualizadorComponent implements OnInit {
   id: string;
-  //idUser: string
   arrComics: Comic[];
   arrUser: Usuario;
   arrIndex: any;
@@ -22,19 +21,14 @@ export class VisualizadorComponent implements OnInit {
   arrDescripcion: Comic[];
   url: string;
 
-
-
-
   constructor(private activateRoute: ActivatedRoute, private comicsService: ComicsService, private usersService: UsuariosService) {
 
     this.id;
     this.arrIndex = [];
     this.pagina = [];
-    //this.idUser
     this.url;
   }
   async ngOnInit() {
-
 
     this.activateRoute.params.subscribe((params) => {
       const idesVarios = params.idComic;
@@ -47,36 +41,21 @@ export class VisualizadorComponent implements OnInit {
       console.log(arrViewId);
       this.usersService.getUserByEmail(email).then(userId => {
         this.arrUser = userId;
-        console.log(userId.id);
         this.comicsService.createByFks(userId.id, this.id)
         this.comicsService.getPag(userId.id, this.id).then(pag => {
           this.pagina = pag;
-          console.log(this.pagina.pagina);
-
-
         })
-
-
-
       })
-
-
     })
     this.arrDescripcion = await this.comicsService.getByDescription(this.id);
 
-
     this.comicsService.viewById(this.id).then(arrViewId => {
       this.linkArchivo = arrViewId;
-      console.log(this.linkArchivo);
-
     });
 
-
-
   }
-
+  //////////////////////////////////////////////////////////////
   async savePage($event) {
-    console.log('hola cagarro')
 
     this.activateRoute.params.subscribe((params) => {
       const idesVarios = params.idComic;
@@ -87,9 +66,6 @@ export class VisualizadorComponent implements OnInit {
     const email = localStorage.getItem('userEmail');
     this.arrUser = await this.usersService.getUserByEmail(email);
     const fkUser = this.arrUser.id;
-    console.log(fkUser);
-    console.log(this.arrComics);
-
 
     ////////////////////////////////////
 
@@ -97,16 +73,26 @@ export class VisualizadorComponent implements OnInit {
 
     const pgs = await this.comicsService.getPag(fkUser, this.id);
     this.pagina = pgs;
-    console.log(this.pagina.pagina);
-
-
-
-
   }
 
+  async changeStatus($event) {
 
+    this.activateRoute.params.subscribe((params) => {
+      const idesVarios = params.idComic;
+      this.id = idesVarios;
+    });
 
+    const email = localStorage.getItem('userEmail');
+    this.arrUser = await this.usersService.getUserByEmail(email);
+    const fkUser = this.arrUser.id;
+    const pgs = await this.comicsService.getPag(fkUser, this.id);
+    this.pagina = pgs;
 
+    this.arrIndex = await this.comicsService.updateStatus(this.pagina.id, $event.target.value)
+
+    const retorno = await this.comicsService.getPag(fkUser, this.id);
+    this.pagina = retorno;
+  }
 }
 
 

@@ -20,7 +20,6 @@ const getByEmail = (pEmail) => {
     });
 }
 
-
 const getByUser = (pUsuario) => {
     return new Promise((resolve, reject) => {
         db.query('select * from usuarios where usuario=?', [pUsuario], (err, rows) => {
@@ -29,13 +28,7 @@ const getByUser = (pUsuario) => {
         });
     });
 };
-/*
-const getByRole = (pRol) => {
-    return new Promise((resolve, reject) => {
-        db.query('')
-    });
-}
-*/
+
 const getByUserId = (pUsuarioId) => {
     return new Promise((resolve, reject) => {
         db.query('select * from usuarios where id=?', [pUsuarioId], (err, rows) => {
@@ -44,7 +37,7 @@ const getByUserId = (pUsuarioId) => {
         });
     });
 };
-///////////////////////////Alvaro esto he decidido ponerlo finalmente aqui poruqe, realmente estamos trabajando con la info de usuario
+
 
 
 module.exports = {

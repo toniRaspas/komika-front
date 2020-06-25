@@ -91,6 +91,10 @@ POST http://localhost:3000/indices/tbi/63/4
 PUT http://localhost:3000/indices/page/63/2/4
 
 ###
+PUT http://localhost:3000/indices/updateStatus/1491/leyendo
+
+###
+
 GET http://localhost:3000/indices/getpage/63/5
 
 

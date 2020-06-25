@@ -52,24 +52,31 @@ router.put('/page/:fk_usuario/:fk_comic/:pagina', async (req, res) => {
 })
 
 router.get('/getpage/:fk_usuario/:fk_comic', async (req, res) => {
-  const paginas = await Indice.getPagFks(req.params.fk_usuario, req.params.fk_comic);
+  const paginas = await Indice.getAllFks(req.params.fk_usuario, req.params.fk_comic);
   try {
     res.json(paginas[0]);
   }
   catch (err) {
     res.send(err)
   }
-
 })
-/*
-router.put('/pag/:id/:page', async (req, res) => {
-  const result = await Indice.progress(req.paramsreq.params.page);
+
+router.put('/updatestatus/:id/:estado', async (req, res) => {
+  const result = await Indice.updateState(req.params.id, req.params.estado);
   if (result['affectedRows'] === 1) {
-    res.json({ success: 'pagina actualizada' });
+    res.json({ success: 'Página actualizzada capuyo' })
   } else {
-    res.json({ error: 'No se ha podido actualizar el indice' });
+    res.json({ error: 'No se puede actualizar' })
   }
 })
-*/
+////////modificar la cosa esta que recibe un
+router.put('/yourpoint/:fk_usuario/:fk_comic/:puntuacion', async (req, res) => {
+  const result = await Indice.insertPoints(req.params.fk_usuario, req.params.fk_comic, req.params.puntuacion);
+  if (result['affectedRows'] === 1) {
+    res.json(req.params.puntuacion)
+  } else {
+    res.json({ error: 'Mete algo que sirva por dios' })
+  }
+})
 
 module.exports = router;

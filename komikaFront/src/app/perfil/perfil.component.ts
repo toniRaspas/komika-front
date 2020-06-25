@@ -42,7 +42,6 @@ export class PerfilComponent implements OnInit {
     console.log(this.arrIndex)
     console.log(this.arrIndex.lenght);
     this.arrRead = await this.arrIndex.filter(comic => comic.estado == 'leido')
-    console.log(this.arrRead);
     this.arrReading = await this.arrIndex.filter(comic => comic.estado == 'leyendo')
 
 
@@ -64,6 +63,16 @@ export class PerfilComponent implements OnInit {
     console.log(this.arrIndex.lenght);
 
     window.location.reload();
+
+  }
+  async pointing(id, $event) {
+    const email = localStorage.getItem('userEmail');
+    this.arrUser = await this.usersService.getUserByEmail(email);
+    const idUser = this.arrUser.id
+    const points = $event.target.value;
+    this.arrIndex = await this.comicsService.updatePoints(idUser, id, points)
+    console.log(this.arrIndex);
+
 
   }
 

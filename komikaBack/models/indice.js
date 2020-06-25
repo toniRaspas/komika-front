@@ -36,11 +36,34 @@ const updatePage = (fk_usuario, fk_comic, pagina) => {
     })
 }
 
-const getPagFks = (fk_usuario, fk_comic) => {
+const getAllFks = (fk_usuario, fk_comic) => {
     return new Promise((resolve, reject) => {
-        db.query('select pagina from tbi_usuarios_comics where fk_usuario=? and fk_comic=?', [fk_usuario, fk_comic], (err, rows) => { if (err) reject(err); resolve(rows) })
+        db.query('select * from tbi_usuarios_comics where fk_usuario=? and fk_comic=?', [fk_usuario, fk_comic], (err, rows) => { if (err) reject(err); resolve(rows) })
     })
 
 }
 
-module.exports = { getIndexUserId, createInIndex, deleteIndex, updatePage, getPagFks }
+const updateState = (id, estado) => {
+    return new Promise((resolve, reject) => {
+        db.query('update tbi_usuarios_comics set estado=? where id=?', [estado, id], (err, rows) => { if (err) reject(err); resolve(rows) })
+    })
+}
+
+const insertPoints = (fk_usuario, fk_comic, puntuacion) => {
+    return new Promise((resolve, reject) => {
+        db.query('update tbi_usuarios_comics set puntuacion=? where fk_usuario=? and fk_comic=?', [puntuacion, fk_usuario, fk_comic], (err, result) => { if (err) reject(err); resolve(result) })
+    })
+}
+
+const showAvg = (idComic) => {
+    return new Promise((resolve, reject) => {
+        db.query('select avg(puntuacion) from tbi_usuarios_comics where fk_comic =?', [fk_comic], (err, rows) => {
+            if (err) reject(err);
+            resolve(rows)
+
+        });
+    });
+}
+//const updateState = ()
+
+module.exports = { getIndexUserId, createInIndex, deleteIndex, updatePage, getAllFks, updateState, insertPoints, showAvg }
