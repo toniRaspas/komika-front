@@ -8,9 +8,9 @@
 <button value="leyendo" (click)="changeStatus($event)" *ngIf="pagina.estado == 'leido'">Leyendo</button>
 <p *ngIf="pagina.estado != null">Estado:{{pagina.estado}}</p>
 
-<ngx-extended-pdf-viewer *ngFor="let comic of linkArchivo" class="col-12" [src]="comic.archivoLocal"
-    useBrowserLocale=" true" [showDownloadButton]="false" [showOpenFileButton]="false" [showPrintButton]="false"
-    [zoom]="'page-fit'" [spread]="'odd'" delayFirstView=1000 height="90vh" [showPresentationModeButton]="true"
+<ngx-extended-pdf-viewer class="col-12" [src]="linkArchivo[0].archivo" useBrowserLocale=" true"
+    [showDownloadButton]="false" [showOpenFileButton]="false" [showPrintButton]="false" [zoom]="'page-fit'"
+    [spread]="'odd'" delayFirstView=1000 height="90vh" [showPresentationModeButton]="true"
     (pageChange)="savePage($event)" [page]="pagina.pagina">
 </ngx-extended-pdf-viewer>
 <div style="height: 100px;"></div>

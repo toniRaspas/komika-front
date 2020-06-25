@@ -62,10 +62,18 @@ export class UsuariosService {
       resolve(this.httpClient.get(newUrl).toPromise())
     })
   }
-  ///////////////////////////////
 
+  editUser(pId: number, pValues): Promise<any> {
+    return new Promise((resolve, reject) => {
+      resolve(this.httpClient.put(this.baseUrl + 'edit/' + pId, pValues).toPromise());
+    });
+  };
 
-
+  getUserById(pId): Promise<any> {
+    return new Promise((resolve, reject) => {
+      resolve(this.httpClient.get(this.baseUrl + 'user/' + pId).toPromise());
+    });
+  }
 
 
 

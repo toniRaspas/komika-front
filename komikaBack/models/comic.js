@@ -12,7 +12,6 @@ const getById = (pId) => {
     return new Promise((resolve, reject) => {
         db.query('select * from comics where id = ?', [pId], (err, result) => {
             if (err) reject(err);
-            console.log(resolve(result));
             resolve(result);
         });
     });
@@ -77,7 +76,7 @@ const updateById = (pId, { titulo, autor, dibujante, ano, genero, escuela, edito
 const getByIdViewer = (pId) => {
     return new Promise((resolve, reject) => {
 
-        db.query('SELECT comics.archivoLocal FROM comics WHERE comics.id = ?', [pId], (err, rows) => {
+        db.query('SELECT comics.archivo FROM comics WHERE comics.id = ?', [pId], (err, rows) => {
             if (err) reject(err);
             resolve(rows);
         });

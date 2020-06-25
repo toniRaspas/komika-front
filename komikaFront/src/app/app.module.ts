@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { HttpClientModule } from '@angular/common/http';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { environment } from '../environments/environment';
@@ -29,6 +31,7 @@ import { EditarAutoresComponent } from './administracion/editar-autores/editar-a
 import { CrearComicComponent } from './administracion/crear-comic/crear-comic.component';
 
 import * as firebase from 'firebase';
+import { EditarPerfilComponent } from './editar-perfil/editar-perfil.component';
 firebase.initializeApp(environment.firebaseConfig);
 
 @NgModule({
@@ -44,7 +47,8 @@ firebase.initializeApp(environment.firebaseConfig);
     AdminGeneralComponent,
     AutoresComponent,
     EditarAutoresComponent,
-    CrearComicComponent
+    CrearComicComponent,
+    EditarPerfilComponent
 
   ],
   imports: [
@@ -58,7 +62,8 @@ firebase.initializeApp(environment.firebaseConfig);
     AngularFireStorageModule,
 
     BrowserAnimationsModule,
-    AccordionModule.forRoot()
+    AccordionModule.forRoot(),
+    CarouselModule.forRoot()
 
   ],
   providers: [

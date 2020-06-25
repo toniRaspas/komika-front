@@ -19,6 +19,7 @@ export class EditarComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private comicsService: ComicsService,
     private router: Router) {
+
     this.editForm = new FormGroup({
       'titulo': new FormControl(''),
       'autor': new FormControl(''),

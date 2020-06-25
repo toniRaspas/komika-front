@@ -1,78 +1,111 @@
+<!--<div>
+    <select id="puntuacion" (click)="pointing(comic.id, $event)">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+    <label>Puntuación:</label>
+</div>
+
+
+
+
+
+
+<button [routerLink]="['/galeria/view', comic.id]">LEER</button>
+<button [value]="comic.id" (click)="onDelete($event)">Borrar</button>
+<div>
+    <form>
+        <p class="clasificacion">
+            <input id="radio1" type="radio" name="estrellas" value="5">
+            
+                  <label for="radio1">★</label>
+            
+                  <input id="radio2" type="radio" name="estrellas" value="4">
+            
+                  <label for="radio2">★</label>
+            
+                  <input id="radio3" type="radio" name="estrellas" value="3">
+            
+                  <label for="radio3">★</label>
+            
+                  <input id="radio4" type="radio" name="estrellas" value="2">
+            
+                  <label for="radio4">★</label>
+            
+                  <input id="radio5" type="radio" name="estrellas" value="1">
+            
+                  <label for="radio5">★</label>
+        </p>
+    </form>
+    <label>Puntuación:</label>
+</div>
+
+-->
 <div class="container">
-    <div class="col col-4">
-        <img [src]="arrUser.foto">
-        <h3 class="">{{arrUser.usuario}}</h3>
-        <button>Configurar</button>
-    </div>
-    <h2>Tus lecturas</h2>
-
-    <h3>Leyendo</h3>
-    <div *ngIf="arrReading.length == 0">Lee Burro</div>
-    <div *ngFor="let comic of arrReading">
-
-        <h4>{{comic.titulo}}</h4>
-        <h4>{{comic.autor}}</h4>
-        <img [src]="comic.linkFoto">
-        <p>{{comic.descripcion}}
-        </p>
-        <label>Estado: {{comic.estado}}</label>
-
-        <button [routerLink]="['/galeria/view', comic.id]">LEER</button>
-        <button [value]="comic.id" (click)="onDelete($event)">Borrar</button>
-        <div>
-            <select id="puntuacion" (click)="pointing(comic.id, $event)">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select>
-            <label>Puntuación:</label>
+    <div class="d-flex flex-wrap p-3">
+        <div class="col-12 col-sm-3 col-md-3 mb-5">
+            <div class="col d-flex flex-column perfil">
+                <div class="d-flex justify-content-center">
+                    <img class="foto" [src]="foto">
+                </div>
+                <h3 class="usuario">{{arrUser.usuario}}</h3>
+                <button [routerLink]="['/perfil/editar/'+arrUser.id]" class="btn btn-outline-warning">Editar</button>
+            </div>
         </div>
 
-    </div>
-    <h3>Leidos</h3>
-    <div *ngIf="arrRead.length == 0">Lee Burro</div>
+        <div class="col-12 col-sm-9 col-md-9">
 
-    <div *ngFor="let comic of arrRead">
+            <h3>Tus lecturas</h3>
+            <accordion class="acordeon mb-5" [isAnimated]="true">
+                <accordion-group heading="Leyendo" class="col-12">
+                    <div class="d-flex flex-wrap">
+                        <div *ngIf="arrReading.length == 0" class="burro ml-2">Lee, Burro</div>
+                        <div *ngFor="let comic of arrReading" class="col-12 col-sm-6 leyendo mb-3">
+                            <h4>{{comic.titulo}}</h4>
+                            <h4>{{comic.autor}}</h4>
+                            <img [src]="comic.linkFoto">
+                            <span class="etiquetas">Estado: </span><span>{{comic.estado}}</span> <br>
+                            <span class="etiquetas">Puntuación: </span> <span>{{comic.puntuacion}}</span>
+                            <div class="mb-2 mt-2">
+                                <button [routerLink]="['/galeria/view', comic.id]"
+                                    class="btn btn-outline-warning">LEER</button>
+                                <button [value]="comic.id" (click)="onDelete($event)"
+                                    class="btn btn-danger ml-2">Borrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </accordion-group>
+            </accordion>
 
-        <h4>{{comic.titulo}}</h4>
-        <h4>{{comic.autor}}</h4>
-        <img [src]="comic.linkFoto">
-        <p>{{comic.descripcion}}
-        </p>
-        <label>Estado: {{comic.estado}}</label>
-        <label>Puntuación:</label>
 
-        <button [routerLink]="['/galeria/view', comic.id]">LEER</button>
-        <button [value]="comic.id" (click)="onDelete($event)">Borrar</button>
-        <div>
-            <form>
-                <p class="clasificacion">
-                    <input id="radio1" type="radio" name="estrellas" value="5">
-                    <!--
-                  --><label for="radio1">★</label>
-                    <!--
-                  --><input id="radio2" type="radio" name="estrellas" value="4">
-                    <!--
-                  --><label for="radio2">★</label>
-                    <!--
-                  --><input id="radio3" type="radio" name="estrellas" value="3">
-                    <!--
-                  --><label for="radio3">★</label>
-                    <!--
-                  --><input id="radio4" type="radio" name="estrellas" value="2">
-                    <!--
-                  --><label for="radio4">★</label>
-                    <!--
-                  --><input id="radio5" type="radio" name="estrellas" value="1">
-                    <!--
-                  --><label for="radio5">★</label>
-                </p>
-            </form>
-            <label>Puntuación:</label>
+
+
+            <h3>Leídos</h3>
+            <accordion class="acordeon mb-5" [isAnimated]="true">
+                <accordion-group heading="Leídos" class="col-12">
+                    <div class="d-flex flex-wrap">
+                        <div *ngIf="arrRead.length == 0" class="burro ml-2">Lee, Burro</div>
+                        <div *ngFor="let comic of arrRead" class="col-12 col-sm-6 leyendo mb-3">
+                            <h4>{{comic.titulo}}</h4>
+                            <h4>{{comic.autor}}</h4>
+                            <img [src]="comic.linkFoto">
+                            <span class="etiquetas">Estado: </span><span>{{comic.estado}}</span> <br>
+                            <span class="etiquetas">Puntuación: </span> <span>{{comic.puntuacion}}</span>
+                            <div class="mb-2 mt-2">
+                                <button [routerLink]="['/galeria/view', comic.id]"
+                                    class="btn btn-outline-warning">LEER</button>
+                                <button [value]="comic.id" (click)="onDelete($event)"
+                                    class="btn btn-danger ml-2">Borrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </accordion-group>
+            </accordion>
+
+
         </div>
-
     </div>
-
 </div>

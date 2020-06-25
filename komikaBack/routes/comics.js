@@ -15,6 +15,7 @@ router.get('/', (req, res) => {
 router.get('/:comicId', async (req, res) => {
     try {
         const comic = await Comic.getById(req.params.comicId);
+        console.log(req.params);
         res.json(comic);
     } catch (err) {
         res.send(err);
@@ -63,6 +64,7 @@ router.get('/filter/:genero/:titulo', async (req, res) => {
 router.get('/pdf/:id', async (req, res) => {
     try {
         const viewer = await Comic.getByIdViewer(req.params.id);
+        console.log(viewer);
         res.json(viewer);
     } catch (err) {
         res.send(err);

@@ -32,7 +32,7 @@ ul {
 footer {
     margin-top: 30px;
     /* height: 50px; */
-    background-image: linear-gradient(to right,var(--color-fuente) , crimson);
+    background-image: linear-gradient(to right, crimson, var(--color-fuente) );
     font-family: var(--fuente-secundaria);
     font-weight: bold;
     padding: 1.825em 0;

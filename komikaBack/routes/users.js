@@ -91,21 +91,24 @@ router.get('/id/:id', async (req, res) => {
   }
 });
 
+router.get('/user/:userId', async (req, res) => {
+  try {
+    const usuario = await Usuario.getById(req.params.userId);
+    res.json(usuario);
+  } catch (err) {
+    res.send(err);
+  }
+});
 
 
-
-/*
-
-const getAllByUserId = (userId) => {
-  return new Promise((resolve, reject) => {
-    db.query('select * from tbi_usuarios_comics where fk_usuario = ?', [userId], (err, rows) => {
-      if (err) reject(err);
-      resolve(rows)
-    })
-  })
-}
-*/
-
-
+router.put('/edit/:usuarioId', async (req, res) => {
+  console.log(req.params);
+  const result = await Usuario.editUserId(req.params.usuarioId, req.body);
+  if (result['affectedRows'] === 1) {
+    res.json({ success: 'Usuario actualizado' });
+  } else {
+    res.json({ error: 'No se ha podido actualizar correctamente' });
+  }
+});
 
 module.exports = router;

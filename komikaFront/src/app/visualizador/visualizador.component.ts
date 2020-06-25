@@ -28,6 +28,7 @@ export class VisualizadorComponent implements OnInit {
     this.pagina = [];
     this.url;
   }
+
   async ngOnInit() {
 
     this.activateRoute.params.subscribe((params) => {
@@ -38,23 +39,25 @@ export class VisualizadorComponent implements OnInit {
 
     this.comicsService.viewById(this.id).then(arrViewId => {
       this.arrComics = arrViewId;
-      console.log(arrViewId);
       this.usersService.getUserByEmail(email).then(userId => {
         this.arrUser = userId;
         this.comicsService.createByFks(userId.id, this.id)
         this.comicsService.getPag(userId.id, this.id).then(pag => {
           this.pagina = pag;
-        })
-      })
-    })
+
+
+        });
+      });
+    });
+
+    //RECUPERAR DESCRIPCION Y LINK ARCHIVO
     this.arrDescripcion = await this.comicsService.getByDescription(this.id);
 
     this.comicsService.viewById(this.id).then(arrViewId => {
       this.linkArchivo = arrViewId;
     });
+  };
 
-  }
-  //////////////////////////////////////////////////////////////
   async savePage($event) {
 
     this.activateRoute.params.subscribe((params) => {
@@ -96,13 +99,6 @@ export class VisualizadorComponent implements OnInit {
 }
 
 
-//updatePag(pUsuario, pComic, pPage)
-/*
-   const email = localStorage.getItem('userEmail');
-    this.arrUser = await this.usersService.getUserByEmail(email);
-    console.log(this.arrUser);
-    const id = this.arrUser.id;
-*/
 
 
 
