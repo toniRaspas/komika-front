@@ -40,14 +40,11 @@ export class VisualizadorComponent implements OnInit {
 
     this.comicsService.viewById(this.id).then(arrViewId => {
       this.arrComics = arrViewId;
-      console.log(arrViewId);
       this.usersService.getUserByEmail(email).then(userId => {
         this.arrUser = userId;
-        console.log(userId.id);
         this.comicsService.createByFks(userId.id, this.id)
         this.comicsService.getPag(userId.id, this.id).then(pag => {
           this.pagina = pag;
-          console.log(this.pagina.pagina);
 
 
         });
@@ -59,13 +56,10 @@ export class VisualizadorComponent implements OnInit {
 
     this.comicsService.viewById(this.id).then(arrViewId => {
       this.linkArchivo = arrViewId;
-      console.log(this.linkArchivo);
-
     });
   };
 
   async savePage($event) {
-    console.log('hola cagarro')
 
     this.activateRoute.params.subscribe((params) => {
       const idesVarios = params.idComic;
@@ -76,8 +70,7 @@ export class VisualizadorComponent implements OnInit {
     const email = localStorage.getItem('userEmail');
     this.arrUser = await this.usersService.getUserByEmail(email);
     const fkUser = this.arrUser.id;
-    console.log(fkUser);
-    console.log(this.arrComics);
+
 
 
     ////////////////////////////////////
@@ -86,7 +79,6 @@ export class VisualizadorComponent implements OnInit {
 
     const pgs = await this.comicsService.getPag(fkUser, this.id);
     this.pagina = pgs;
-    console.log(this.pagina.pagina);
   };
 
 

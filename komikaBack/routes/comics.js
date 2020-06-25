@@ -64,6 +64,7 @@ router.get('/filter/:genero/:titulo', async (req, res) => {
 router.get('/pdf/:id', async (req, res) => {
     try {
         const viewer = await Comic.getByIdViewer(req.params.id);
+        console.log(viewer);
         res.json(viewer);
     } catch (err) {
         res.send(err);
