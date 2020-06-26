@@ -1,8 +1,8 @@
 {
   "hosting": [
     {
-      "target": "komikaFront",
-      "public": "dist/komikaFront",
+      "target": "Komika",
+      "public": "dist/Komika",
       "ignore": [
         "firebase.json",
         "**/.*",
