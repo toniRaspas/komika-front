@@ -2,7 +2,7 @@
   "targets": {
     "app-komika": {
       "hosting": {
-        "komikaFront": [
+        "Komika": [
           "app-komika"
         ]
       }
