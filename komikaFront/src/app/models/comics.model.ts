@@ -17,6 +17,7 @@ export class Comic {
     archivo: string;
     archivoLocal: string;
 
+
     constructor(id: number, titulo: string = '', autor: string = '', dibujante: string = '', ano: number, genero: string = '', escuela: string = '', editorial: string = '', descripcion: string = '', nombreArchivo: string = '', linkFoto: string = '', archivo: string, archivoLocal: string = '') {
 
         this.id = id;
@@ -32,6 +33,7 @@ export class Comic {
         this.linkFoto = linkFoto;
         this.archivo = archivo;
         this.archivoLocal = archivoLocal;
+
     }
 
 }

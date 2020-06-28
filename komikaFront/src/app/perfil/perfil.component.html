@@ -1,49 +1,3 @@
-<!--<div>
-    <select id="puntuacion" (click)="pointing(comic.id, $event)">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-    </select>
-    <label>Puntuación:</label>
-</div>
-
-
-
-
-
-
-<button [routerLink]="['/galeria/view', comic.id]">LEER</button>
-<button [value]="comic.id" (click)="onDelete($event)">Borrar</button>
-<div>
-    <form>
-        <p class="clasificacion">
-            <input id="radio1" type="radio" name="estrellas" value="5">
-            
-                  <label for="radio1">★</label>
-            
-                  <input id="radio2" type="radio" name="estrellas" value="4">
-            
-                  <label for="radio2">★</label>
-            
-                  <input id="radio3" type="radio" name="estrellas" value="3">
-            
-                  <label for="radio3">★</label>
-            
-                  <input id="radio4" type="radio" name="estrellas" value="2">
-            
-                  <label for="radio4">★</label>
-            
-                  <input id="radio5" type="radio" name="estrellas" value="1">
-            
-                  <label for="radio5">★</label>
-        </p>
-    </form>
-    <label>Puntuación:</label>
-</div>
-
--->
 <div class="container">
     <div class="d-flex flex-wrap p-3">
         <div class="col-12 col-sm-3 col-md-3 mb-5">
@@ -68,20 +22,107 @@
                             <h4>{{comic.autor}}</h4>
                             <img [src]="comic.linkFoto">
                             <span class="etiquetas">Estado: </span><span>{{comic.estado}}</span> <br>
-                            <span class="etiquetas">Puntuación: </span> <span>{{comic.puntuacion}}</span>
+                            <!--<span class="etiquetas">Puntuación: </span> <span>{{comic.puntuacion}}</span>-->
                             <div class="mb-2 mt-2">
                                 <button [routerLink]="['/galeria/view', comic.id]"
                                     class="btn btn-outline-warning">LEER</button>
                                 <button [value]="comic.id" (click)="onDelete($event)"
                                     class="btn btn-danger ml-2">Borrar</button>
+
+                                <form class="rating" *ngIf="comic['puntuacion'] == null">
+
+                                    <input [id]="comic.id + '1'" type="radio" name="estrellas" value="5"
+                                        (click)="pointing(comic.id, $event)"><label
+                                        [for]="comic.id+ '1'">☆</label><input (click)="pointing(comic.id, $event)"
+                                        [id]="comic.id + '2'" type="radio" name="estrellas" value="4"><label
+                                        [for]="comic.id + '2'">☆</label><input (click)="pointing(comic.id, $event)"
+                                        [id]="comic.id + '3'" type="radio" name="estrellas" value="3"><label
+                                        [for]="comic.id + '3'">☆</label><input (click)="pointing(comic.id, $event)"
+                                        [id]="comic.id + '4'" type="radio" name="estrellas" value="2"><label
+                                        [for]="comic.id + '4'">☆</label><input (click)="pointing(comic.id, $event)"
+                                        [id]="comic.id + '5'" type="radio" name="estrellas" value="1"><label
+                                        [for]="comic.id + '5'">☆</label>
+                                </form>
+
+                                <form class="rating" *ngIf="comic['puntuacion'] == 1">
+
+                                    <input [id]="comic.id + '1'" type="radio" name="estrellas" value="5"
+                                        (click)="pointing(comic.id, $event)"><label
+                                        [for]="comic.id+ '1'">☆</label><input (click)="pointing(comic.id, $event)"
+                                        [id]="comic.id + '2'" type="radio" name="estrellas" value="4"><label
+                                        [for]="comic.id + '2'">☆</label><input (click)="pointing(comic.id, $event)"
+                                        [id]="comic.id + '3'" type="radio" name="estrellas" value="3"><label
+                                        [for]="comic.id + '3'">☆</label><input (click)="pointing(comic.id, $event)"
+                                        [id]="comic.id + '4'" type="radio" name="estrellas" value="2"><label
+                                        [for]="comic.id + '4'">☆</label><input (click)="pointing(comic.id, $event)"
+                                        [id]="comic.id + '5'" type="radio" name="estrellas" value="1" checked><label
+                                        [for]="comic.id + '5'">☆</label>
+                                </form>
+
+                                <form class="rating" *ngIf="comic['puntuacion'] == 2">
+
+                                    <input [id]="comic.id + '1'" type="radio" name="estrellas" value="5"
+                                        (click)="pointing(comic.id, $event)"><label
+                                        [for]="comic.id+ '1'">☆</label><input (click)="pointing(comic.id, $event)"
+                                        [id]="comic.id + '2'" type="radio" name="estrellas" value="4"><label
+                                        [for]="comic.id + '2'">☆</label><input (click)="pointing(comic.id, $event)"
+                                        [id]="comic.id + '3'" type="radio" name="estrellas" value="3"><label
+                                        [for]="comic.id + '3'">☆</label><input (click)="pointing(comic.id, $event)"
+                                        [id]="comic.id + '4'" type="radio" name="estrellas" value="2" checked><label
+                                        [for]="comic.id + '4'">☆</label><input (click)="pointing(comic.id, $event)"
+                                        [id]="comic.id + '5'" type="radio" name="estrellas" value="1"><label
+                                        [for]="comic.id + '5'">☆</label>
+                                </form>
+
+                                <form class="rating" *ngIf="comic['puntuacion'] == 3">
+
+                                    <input [id]="comic.id + '1'" type="radio" name="estrellas" value="5"
+                                        (click)="pointing(comic.id, $event)"><label
+                                        [for]="comic.id+ '1'">☆</label><input (click)="pointing(comic.id, $event)"
+                                        [id]="comic.id + '2'" type="radio" name="estrellas" value="4"><label
+                                        [for]="comic.id + '2'">☆</label><input (click)="pointing(comic.id, $event)"
+                                        [id]="comic.id + '3'" type="radio" name="estrellas" value="3" checked><label
+                                        [for]="comic.id + '3'">☆</label><input (click)="pointing(comic.id, $event)"
+                                        [id]="comic.id + '4'" type="radio" name="estrellas" value="2"><label
+                                        [for]="comic.id + '4'">☆</label><input (click)="pointing(comic.id, $event)"
+                                        [id]="comic.id + '5'" type="radio" name="estrellas" value="1"><label
+                                        [for]="comic.id + '5'">☆</label>
+                                </form>
+
+                                <form class="rating" *ngIf="comic['puntuacion'] == 4">
+
+                                    <input [id]="comic.id + '1'" type="radio" name="estrellas" value="5"
+                                        (click)="pointing(comic.id, $event)"><label
+                                        [for]="comic.id+ '1'">☆</label><input (click)="pointing(comic.id, $event)"
+                                        [id]="comic.id + '2'" type="radio" name="estrellas" value="4" checked><label
+                                        [for]="comic.id + '2'">☆</label><input (click)="pointing(comic.id, $event)"
+                                        [id]="comic.id + '3'" type="radio" name="estrellas" value="3"><label
+                                        [for]="comic.id + '3'">☆</label><input (click)="pointing(comic.id, $event)"
+                                        [id]="comic.id + '4'" type="radio" name="estrellas" value="2"><label
+                                        [for]="comic.id + '4'">☆</label><input (click)="pointing(comic.id, $event)"
+                                        [id]="comic.id + '5'" type="radio" name="estrellas" value="1"><label
+                                        [for]="comic.id + '5'">☆</label>
+                                </form>
+
+                                <form class="rating" *ngIf="comic['puntuacion'] == 5">
+
+                                    <input [id]="comic.id + '1'" type="radio" name="estrellas" value="5"
+                                        (click)="pointing(comic.id, $event)" checked><label
+                                        [for]="comic.id+ '1'">☆</label><input (click)="pointing(comic.id, $event)"
+                                        [id]="comic.id + '2'" type="radio" name="estrellas" value="4"><label
+                                        [for]="comic.id + '2'">☆</label><input (click)="pointing(comic.id, $event)"
+                                        [id]="comic.id + '3'" type="radio" name="estrellas" value="3"><label
+                                        [for]="comic.id + '3'">☆</label><input (click)="pointing(comic.id, $event)"
+                                        [id]="comic.id + '4'" type="radio" name="estrellas" value="2"><label
+                                        [for]="comic.id + '4'">☆</label><input (click)="pointing(comic.id, $event)"
+                                        [id]="comic.id + '5'" type="radio" name="estrellas" value="1"><label
+                                        [for]="comic.id + '5'">☆</label>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </accordion-group>
             </accordion>
-
-
-
 
             <h3>Leídos</h3>
             <accordion class="acordeon mb-5" [isAnimated]="true">
@@ -93,19 +134,92 @@
                             <h4>{{comic.autor}}</h4>
                             <img [src]="comic.linkFoto">
                             <span class="etiquetas">Estado: </span><span>{{comic.estado}}</span> <br>
-                            <span class="etiquetas">Puntuación: </span> <span>{{comic.puntuacion}}</span>
                             <div class="mb-2 mt-2">
                                 <button [routerLink]="['/galeria/view', comic.id]"
                                     class="btn btn-outline-warning">LEER</button>
                                 <button [value]="comic.id" (click)="onDelete($event)"
                                     class="btn btn-danger ml-2">Borrar</button>
+                                <form class="rating" *ngIf="comic['puntuacion'] == 1">
+
+                                    <input [id]="comic.id + '1'" type="radio" name="estrellas" value="5"
+                                        (click)="pointing(comic.id, $event)"><label
+                                        [for]="comic.id+ '1'">☆</label><input (click)="pointing(comic.id, $event)"
+                                        [id]="comic.id + '2'" type="radio" name="estrellas" value="4"><label
+                                        [for]="comic.id + '2'">☆</label><input (click)="pointing(comic.id, $event)"
+                                        [id]="comic.id + '3'" type="radio" name="estrellas" value="3"><label
+                                        [for]="comic.id + '3'">☆</label><input (click)="pointing(comic.id, $event)"
+                                        [id]="comic.id + '4'" type="radio" name="estrellas" value="2"><label
+                                        [for]="comic.id + '4'">☆</label><input (click)="pointing(comic.id, $event)"
+                                        [id]="comic.id + '5'" type="radio" name="estrellas" value="1" checked><label
+                                        [for]="comic.id + '5'">☆</label>
+                                </form>
+
+                                <form class="rating" *ngIf="comic['puntuacion'] == 2">
+
+                                    <input [id]="comic.id + '1'" type="radio" name="estrellas" value="5"
+                                        (click)="pointing(comic.id, $event)"><label
+                                        [for]="comic.id+ '1'">☆</label><input (click)="pointing(comic.id, $event)"
+                                        [id]="comic.id + '2'" type="radio" name="estrellas" value="4"><label
+                                        [for]="comic.id + '2'">☆</label><input (click)="pointing(comic.id, $event)"
+                                        [id]="comic.id + '3'" type="radio" name="estrellas" value="3"><label
+                                        [for]="comic.id + '3'">☆</label><input (click)="pointing(comic.id, $event)"
+                                        [id]="comic.id + '4'" type="radio" name="estrellas" value="2" checked><label
+                                        [for]="comic.id + '4'">☆</label><input (click)="pointing(comic.id, $event)"
+                                        [id]="comic.id + '5'" type="radio" name="estrellas" value="1"><label
+                                        [for]="comic.id + '5'">☆</label>
+                                </form>
+
+                                <form class="rating" *ngIf="comic['puntuacion'] == 3">
+
+                                    <input [id]="comic.id + '1'" type="radio" name="estrellas" value="5"
+                                        (click)="pointing(comic.id, $event)"><label
+                                        [for]="comic.id+ '1'">☆</label><input (click)="pointing(comic.id, $event)"
+                                        [id]="comic.id + '2'" type="radio" name="estrellas" value="4"><label
+                                        [for]="comic.id + '2'">☆</label><input (click)="pointing(comic.id, $event)"
+                                        [id]="comic.id + '3'" type="radio" name="estrellas" value="3" checked><label
+                                        [for]="comic.id + '3'">☆</label><input (click)="pointing(comic.id, $event)"
+                                        [id]="comic.id + '4'" type="radio" name="estrellas" value="2"><label
+                                        [for]="comic.id + '4'">☆</label><input (click)="pointing(comic.id, $event)"
+                                        [id]="comic.id + '5'" type="radio" name="estrellas" value="1"><label
+                                        [for]="comic.id + '5'">☆</label>
+                                </form>
+
+                                <form class="rating" *ngIf="comic['puntuacion'] == 4">
+
+                                    <input [id]="comic.id + '1'" type="radio" name="estrellas" value="5"
+                                        (click)="pointing(comic.id, $event)"><label
+                                        [for]="comic.id+ '1'">☆</label><input (click)="pointing(comic.id, $event)"
+                                        [id]="comic.id + '2'" type="radio" name="estrellas" value="4" checked><label
+                                        [for]="comic.id + '2'">☆</label><input (click)="pointing(comic.id, $event)"
+                                        [id]="comic.id + '3'" type="radio" name="estrellas" value="3"><label
+                                        [for]="comic.id + '3'">☆</label><input (click)="pointing(comic.id, $event)"
+                                        [id]="comic.id + '4'" type="radio" name="estrellas" value="2"><label
+                                        [for]="comic.id + '4'">☆</label><input (click)="pointing(comic.id, $event)"
+                                        [id]="comic.id + '5'" type="radio" name="estrellas" value="1"><label
+                                        [for]="comic.id + '5'">☆</label>
+                                </form>
+
+                                <form class="rating" *ngIf="comic['puntuacion'] == 5">
+
+                                    <input [id]="comic.id + '1'" type="radio" name="estrellas" value="5"
+                                        (click)="pointing(comic.id, $event)" checked><label
+                                        [for]="comic.id+ '1'">☆</label><input (click)="pointing(comic.id, $event)"
+                                        [id]="comic.id + '2'" type="radio" name="estrellas" value="4"><label
+                                        [for]="comic.id + '2'">☆</label><input (click)="pointing(comic.id, $event)"
+                                        [id]="comic.id + '3'" type="radio" name="estrellas" value="3"><label
+                                        [for]="comic.id + '3'">☆</label><input (click)="pointing(comic.id, $event)"
+                                        [id]="comic.id + '4'" type="radio" name="estrellas" value="2"><label
+                                        [for]="comic.id + '4'">☆</label><input (click)="pointing(comic.id, $event)"
+                                        [id]="comic.id + '5'" type="radio" name="estrellas" value="1"><label
+                                        [for]="comic.id + '5'">☆</label>
+                                </form>
+
+
                             </div>
                         </div>
                     </div>
                 </accordion-group>
             </accordion>
-
-
         </div>
     </div>
 </div>

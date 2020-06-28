@@ -55,15 +55,18 @@ const insertPoints = (fk_usuario, fk_comic, puntuacion) => {
     })
 }
 
-const showAvg = (idComic) => {
+
+
+const showAvg = (fk_comic) => {
     return new Promise((resolve, reject) => {
-        db.query('select avg(puntuacion) from tbi_usuarios_comics where fk_comic =?', [fk_comic], (err, rows) => {
+        db.query('select round(avg (puntuacion),0) as puntos from tbi_usuarios_comics where fk_comic =?', [fk_comic], (err, rows) => {
             if (err) reject(err);
             resolve(rows)
 
         });
     });
 }
+
 //const updateState = ()
 
 module.exports = { getIndexUserId, createInIndex, deleteIndex, updatePage, getAllFks, updateState, insertPoints, showAvg }

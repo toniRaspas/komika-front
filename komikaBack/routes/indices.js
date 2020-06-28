@@ -79,4 +79,15 @@ router.put('/yourpoint/:fk_usuario/:fk_comic/:puntuacion', async (req, res) => {
   }
 })
 
+router.get('/avg/:fk_comic', async (req, res) => {
+  const media = await Indice.showAvg(req.params.fk_comic)
+  try {
+    res.json(media)
+  }
+  catch (err) {
+    res.send(err)
+
+  }
+})
+
 module.exports = router;

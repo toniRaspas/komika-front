@@ -4,12 +4,13 @@ import { Comic } from '../models/comics.model';
 import { ActivatedRoute } from '@angular/router';
 import { UsuariosService } from '../servicios/usuarios.service';
 import { Usuario } from '../models/usuarios.model';
-
+import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-visualizador',
   templateUrl: './visualizador.component.html',
-  styleUrls: ['./visualizador.component.css']
+  styleUrls: ['./visualizador.component.css'],
+  providers: [NgbRatingConfig]
 })
 export class VisualizadorComponent implements OnInit {
   id: string;
@@ -20,13 +21,17 @@ export class VisualizadorComponent implements OnInit {
   linkArchivo: Comic[];
   arrDescripcion: Comic[];
   url: string;
+  puntuacion: any;
 
-  constructor(private activateRoute: ActivatedRoute, private comicsService: ComicsService, private usersService: UsuariosService) {
+  constructor(private activateRoute: ActivatedRoute, private comicsService: ComicsService, private usersService: UsuariosService, config: NgbRatingConfig) {
 
     this.id;
     this.arrIndex = [];
     this.pagina = [];
     this.url;
+    this.puntuacion;
+    config.max = 5;
+    config.readonly = true;
   }
 
   async ngOnInit() {
@@ -56,6 +61,9 @@ export class VisualizadorComponent implements OnInit {
     this.comicsService.viewById(this.id).then(arrViewId => {
       this.linkArchivo = arrViewId;
     });
+    this.puntuacion = await this.comicsService.getAvg(this.id)
+    console.log(this.puntuacion);
+
   };
 
   async savePage($event) {

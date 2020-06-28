@@ -40,3 +40,10 @@ input.ng-valid.ng-touched{
 input.ng-invalid.ng-touched{
     border: 1px solid lightcoral;
 }    
+.logo
+{
+    width: 350px;
+    margin-bottom: 5%;
+    margin-top: -5%;
+/*background-color: rgba(228, 218, 218, 0.75);*/
+}    

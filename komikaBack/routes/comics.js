@@ -11,6 +11,13 @@ router.get('/', (req, res) => {
             res.json({ error: err.message });
         });
 });
+////borrar
+
+router.get('/ideacos', (req, res) => {
+    Comic.getAllId().then((rows) => { res.json(rows) }).catch((err) => {
+        res.json({ error: err.message })
+    });
+})
 
 router.get('/:comicId', async (req, res) => {
     try {

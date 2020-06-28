@@ -138,7 +138,10 @@ export class ComicsService {
       resolve(this.httpClient.post(this.baseUrl + '/create/', pValues).toPromise());
     });
   }
-
+  getAvg(comicId): Promise<any> {
+    return new Promise((resolve, reject) => { resolve(this.httpClient.get(this.indiceUrl + '/avg/' + comicId).toPromise()) })
+  }
+  getsIds(): Promise<any> { return new Promise((resolve, reject) => { resolve(this.httpClient.get(this.baseUrl + '/ideacos').toPromise()) }) }
 }
 
 

@@ -19,3 +19,9 @@ input.ng-invalid.ng-touched
 {
     border: 1px solid lightcoral;
 }
+
+.logo{
+    width: 200px;
+    margin-left: 43%;
+    margin-top: 15px;
+}

@@ -5,7 +5,7 @@
         <div class="row d-flex">
             <div class="m-3 d-flex justify-content-end">
                 <select class="selectpicker m-1" name="categoria" (change)="onChange($event)" [(ngModel)]="cat">
-                    <option value="" selected>Todo</option>
+                    <option value="" selected="true">Todo</option>
                     <option value="aventuras">Aventuras</option>
                     <option value="comico">Cómico</option>
                     <option value="negro">Negro</option>
@@ -17,22 +17,20 @@
                 <button class="btn btn-outline-danger m-1" (click)="onBoth(cat, words)">BUSCAR</button>
             </div>
         </div>
-
-
         <h2 class="text-center col-12">GALERIA</h2>
-
         <div *ngFor="let comic of arrComics" class="comic col-12 col-md-4 h-100 mt-2">
-            <img class="portada" [src]="comic.linkFoto">
-
-            <div class="info">
-                <h3>{{comic.titulo}}</h3>
-                <p> <span>Autor</span>: {{comic.autor}}</p>
-                <p><span> Año</span>: {{comic.ano | date}}</p>
-                <p><span> Género</span>: {{comic.genero}}</p>
-                <p><span> Escuela</span>: {{comic.escuela}}</p>
-                <p><span> Editorial</span>: {{comic.editorial}}</p>
+            <div class="contenedor">
+                <img class="portada" [src]="comic.linkFoto">
+                <div class="info">
+                    <h3>{{comic.titulo}}</h3>
+                    <p> <span>Autor</span>: {{comic.autor}}</p>
+                    <p><span> Año</span>: {{comic.ano | date}}</p>
+                    <p><span> Género</span>: {{comic.genero}}</p>
+                    <p><span> Escuela</span>: {{comic.escuela}}</p>
+                    <p><span> Editorial</span>: {{comic.editorial}}</p>
+                </div>
             </div>
-
+            <h3>{{comic.titulo}}</h3>
             <button class="btn btn-outline-danger" [routerLink]="['/galeria/view', comic.id]">LEER</button>
         </div>
 

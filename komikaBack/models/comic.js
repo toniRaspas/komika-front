@@ -1,11 +1,20 @@
 //
 const getAllComics = () => {
     return new Promise((resolve, reject) => {
-        db.query('select * from comics', (err, rows) => {
+        db.query('SELECT * FROM comics', (err, rows) => {
             if (err) reject(err);
             resolve(rows);
         });
     });
+}
+/*select round(avg (puntuacion),0) as puntos from tbi_usuarios_comics where fk_comic =?'*/
+const getAllId = () => {
+    return new Promise((resolve, reject) => {
+        db.query('select id from comics', (err, rows) => {
+            if (err) reject(err);
+            resolve(rows)
+        })
+    })
 }
 
 const getById = (pId) => {
@@ -116,5 +125,6 @@ module.exports = {
     getById,
     getByIdViewer,
     createComic,
-    getByIdDescription
+    getByIdDescription,
+    getAllId
 }

@@ -13,6 +13,7 @@ header {
     background-image: linear-gradient(to right,var(--color-fuente) , crimson);
     height: 60px;
     padding: 10px;
+    
 }
 
 
@@ -22,8 +23,13 @@ header {
     font-size: 1.5em;
     color:  black;
     text-align: center;
+
 }
 
+.cabecera
+{
+    margin-top: 20px;
+}
 ul {
     list-style: none;
 }
@@ -43,4 +49,14 @@ footer {
     width:100%;
     height:auto;
 
+}
+.logo
+{
+    width: 110px;
+    
+}
+.titulo
+{
+    display: inline-block;
+    justify-content: center;
 }

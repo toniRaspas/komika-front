@@ -15,17 +15,19 @@ export class GaleriaComponent implements OnInit {
   arrComics: Comic[];
   cat: string;
   words: string;
+  arrIndex: any;
 
 
 
   constructor(private comicsService: ComicsService) {
+    this.arrComics = [];
+
 
   }
 
   async ngOnInit() {
     this.arrComics = await this.comicsService.getAll();
-
-
+    console.log(this.arrComics);
   }
 
   onChange($event) {

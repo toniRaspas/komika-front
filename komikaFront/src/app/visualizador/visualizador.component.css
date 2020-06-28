@@ -8,3 +8,40 @@
 pdf-viewer {
     display: block;
 }
+
+input[type="radio"] {
+    display: none;
+  }
+  
+  input[type="radio"]+label:before {
+    content: "";
+    /* create custom radiobutton appearance */
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    padding: 6px;
+    margin-right: 3px;
+    /* background-color only for content */
+    background-clip: content-box;
+    
+    border-radius: 50%;
+  }
+  
+  /* appearance for checked radiobutton */
+  input[type="radio"]:checked + label:before {
+    background-color: #c23b23;
+  }
+  
+  /* optional styles, I'm using this for centering radiobuttons */
+  label {
+    display: inline-flex;
+    align-items: center;
+    font-weight: bold;
+  }
+  .estados
+  {display: inline-flex;
+    align-content: space-between;
+padding-left: 2%;
+padding-right: 6%;
+margin-top: 10px;
+margin-bottom: -20px;}

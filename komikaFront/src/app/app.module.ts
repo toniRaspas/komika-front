@@ -6,7 +6,6 @@ import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { HttpClientModule } from '@angular/common/http';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { environment } from '../environments/environment';
@@ -32,6 +31,8 @@ import { CrearComicComponent } from './administracion/crear-comic/crear-comic.co
 
 import * as firebase from 'firebase';
 import { EditarPerfilComponent } from './editar-perfil/editar-perfil.component';
+import { NgbModule, NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
+
 firebase.initializeApp(environment.firebaseConfig);
 
 @NgModule({
@@ -63,7 +64,10 @@ firebase.initializeApp(environment.firebaseConfig);
 
     BrowserAnimationsModule,
     AccordionModule.forRoot(),
-    CarouselModule.forRoot()
+    CarouselModule.forRoot(),
+    NgbModule,
+    NgbRatingModule
+
 
   ],
   providers: [

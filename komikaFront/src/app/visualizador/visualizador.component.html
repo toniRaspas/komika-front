@@ -1,12 +1,41 @@
-<accordion class="acordeon" [isAnimated]="true">
+<accordion class="acordeon " [isAnimated]="true">
+
     <accordion-group heading="Sinopsis" *ngFor="let comic of arrDescripcion" class="col-12">
         {{comic.descripcion}}
     </accordion-group>
-</accordion>
 
+
+
+</accordion>
+<div class="row">
+    <div class="col justify-content-between estados">
+        <form class="rating" *ngIf="pagina.estado == 'leyendo'">
+            <input (click)="changeStatus($event)" id="visualizar1" type="radio" value="leido" name="estado"><label
+                for="visualizar1">Leido</label>
+            <input id="visualizar2" type="radio" value="leyendo" (click)="changeStatus($event)" name="estado"
+                checked><label for="visualizar2">Leyendo</label>
+
+        </form>
+        <form class="rating" *ngIf="pagina.estado == 'leido'">
+            <input (click)="changeStatus($event)" id="visualizar1" type="radio" value="leido" name="estado"
+                checked><label for="visualizar1">Leido</label>
+            <input id="visualizar2" type="radio" value="leyendo" (click)="changeStatus($event)" name="estado"><label
+                for="visualizar2">Leyendo</label>
+
+        </form>
+
+
+        <div *ngFor="let comic of puntuacion">
+            <ngb-rating [(rate)]="comic.puntos" style="color: #ffca08; font-size: 20px; padding-left: 10%;">
+            </ngb-rating>
+
+        </div>
+    </div>
+</div>
+<!--
 <button value="leido" (click)="changeStatus($event)" *ngIf="pagina.estado == 'leyendo'">Leido</button>
 <button value="leyendo" (click)="changeStatus($event)" *ngIf="pagina.estado == 'leido'">Leyendo</button>
-<p *ngIf="pagina.estado != null">Estado:{{pagina.estado}}</p>
+<p *ngIf="pagina.estado != null">Estado:{{pagina.estado}}</p>-->
 
 <ngx-extended-pdf-viewer class="col-12" [src]="linkArchivo[0].archivo" useBrowserLocale=" true"
     [showDownloadButton]="false" [showOpenFileButton]="false" [showPrintButton]="false" [zoom]="'page-fit'"

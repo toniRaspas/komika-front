@@ -1,7 +1,7 @@
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 .container {
     background-color: whitesmoke;
 }
-
 
 h3 {
     margin-left: 18px;
@@ -36,4 +36,25 @@ img {
     display: block;
 }
 
-
+.rating > input{display: none}
+.rating {
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    
+    font-size: 15px;
+  }
+  .rating > label {
+    display: inline-block;
+    position: relative;
+    width: 1.1em;
+    content: "\2605";
+  }
+  .rating > label:hover:before,
+  .rating > label:hover ~ label:before {
+     content: "\2605";
+     position: absolute;
+  }
+  .rating > input:checked ~ label
+{ color: orange ; 
+    content: "\2605";
+    }
