@@ -12,6 +12,7 @@ import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./visualizador.component.css'],
   providers: [NgbRatingConfig]
 })
+
 export class VisualizadorComponent implements OnInit {
   id: string;
   arrComics: Comic[];
@@ -104,6 +105,10 @@ export class VisualizadorComponent implements OnInit {
     const retorno = await this.comicsService.getPag(fkUser, this.id);
     this.pagina = retorno;
   }
+
+
+
+
 }
 
 
