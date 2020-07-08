@@ -10,6 +10,7 @@ const Usuario = require('../models/usuario');
 router.post('/registro', async (req, res) => {
   const email = await Usuario.getByEmail(req.body.email);
   const user = await Usuario.getByUser(req.body.usuario);
+  console.log(req.body.usuario);
 
   if (email) {
     res.json({ error: 'El email ya está registrado' })

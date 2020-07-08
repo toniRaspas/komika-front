@@ -48,12 +48,14 @@ export class PerfilComponent implements OnInit {
 
     const email = localStorage.getItem('userEmail');
     this.arrUser = await this.usersService.getUserByEmail(email);
-
+    console.log(email);
     if (this.arrUser.foto === null || this.arrUser.foto === '') { this.foto = '../../assets/images/profile.png'; }
     else { this.foto = this.arrUser.foto; }
     console.log(this.arrUser);
 
     const id = this.arrUser.id;
+
+
     this.arrIndex = await this.comicsService.indexByUser(id);
 
     this.arrRead = await this.arrIndex.filter(comic => comic.estado == 'leido');

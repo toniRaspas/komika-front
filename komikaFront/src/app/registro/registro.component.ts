@@ -51,6 +51,10 @@ export class RegistroComponent implements OnInit {
       let response = await this.usuariosService.login(pNewUser);
       if (response.success) {
         await this.usuariosService.createLocalToken(response.token);
+        await this.usuariosService.createLocalToken(response.token);
+        await this.usuariosService.retrieveLocalToken();
+        await this.usuariosService.createLocalEmail(response.email);
+        await this.usuariosService.retrieveLocalEmail();
         this.router.navigate(['/galeria']);
       }
     } catch (err) {

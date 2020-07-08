@@ -1,7 +1,7 @@
 const create = ({ nombre, usuario, email, password }) => {
     return new Promise((resolve, reject) => {
-        db.query('insert into usuarios (id, nombre, usuario, email, password) values (?,?,?,?,?)',
-            [null, nombre, usuario, email, password],
+        db.query('insert into usuarios (nombre, usuario, email, password) values (?,?,?,?)',
+            [nombre, usuario, email, password],
             (err, result) => {
                 if (err) reject(err);
                 resolve(result);
@@ -23,7 +23,7 @@ const getByUser = (pUsuario) => {
     return new Promise((resolve, reject) => {
         db.query('select * from usuarios where usuario=?', [pUsuario], (err, rows) => {
             if (err) reject(err);
-            resolve(rows);
+            resolve(rows[0]);
         });
     });
 };
